@@ -9,4 +9,7 @@ import kotlinx.coroutines.flow.Flow
 abstract class JobsDao : BaseDao<JobEntity> {
     @Query("SELECT * FROM jobs")
     abstract fun getAll(): Flow<List<JobEntity>>
+
+    @Query("SELECT * FROM jobs WHERE id==:id")
+    abstract fun getById(id:String):Flow<JobEntity>
 }

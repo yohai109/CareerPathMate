@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +38,11 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
                 val toast = Toast(context?.applicationContext)
                 toast.setText("clicked on ${it.companyName} id: ${it.id}")
                 toast.show()
+
+                val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
+                    jobId = it.id
+                )
+                root.findNavController().navigate(action)
             }
 
             jobsListRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)

@@ -9,5 +9,21 @@
         android:id="@+id/jobsListFragment"
         android:name="com.example.joblogger.screens.jobslist.JobsListFragment"
         android:label="fragment_jobs_list"
-        tools:layout="@layout/fragment_jobs_list" />
+        tools:layout="@layout/fragment_jobs_list" >
+        <action
+            android:id="@+id/action_jobsListFragment_to_jobDetailsFragment"
+            app:destination="@id/jobDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/jobDetailsFragment"
+        android:name="com.example.joblogger.screens.jobdetails.JobDetailsFragment"
+        android:label="JobDetailsFragment"
+        tools:layout="@layout/fragment_job_details">
+        <argument
+            android:name="jobId"
+            app:argType="string"
+            android:defaultValue="0" />
+
+    </fragment>
 </navigation>
