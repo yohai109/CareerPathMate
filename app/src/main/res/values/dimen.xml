@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="screenPadding">16dp</dimen>
+
+    <dimen name="commonTextSize">14sp</dimen>
+    <dimen name="titleTextSize">20sp</dimen>
 </resources>

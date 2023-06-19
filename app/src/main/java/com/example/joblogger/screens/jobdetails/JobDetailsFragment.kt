@@ -21,20 +21,17 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     private val viewModel: JobDetailsViewModel by viewModels()
     private var jobId: String? = null
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initArguments()
-        initObservers()
-    }
 
-    private fun initArguments() {
+    override fun FragmentJobDetailsBinding.initUI() {}
+
+    override fun initArguments() {
         arguments?.let {
             val arg = JobDetailsFragmentArgs.fromBundle(it)
             jobId = arg.jobId
         }
     }
 
-    private fun initObservers() {
+    override fun initObservers() {
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.currJob(jobId ?: "").collect {

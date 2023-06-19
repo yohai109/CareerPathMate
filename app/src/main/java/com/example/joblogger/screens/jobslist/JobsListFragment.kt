@@ -8,6 +8,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,16 +23,10 @@ import kotlinx.coroutines.withContext
 @AndroidEntryPoint
 class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListBinding::inflate) {
     private val viewModel: JobListViewModel by viewModels()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initUI()
-        initObservers()
-    }
 
-    private fun initUI() {
-        binding?.apply {
+    override fun FragmentJobsListBinding.initUI() {
             newJobFab.setOnClickListener {
-                viewModel.createJob()
+                findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
             }
 
             jobsListRV.adapter = JobListAdapter() {
@@ -52,10 +47,10 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             )
 
             jobsListRV.addItemDecoration(dividerItemDecoration)
-        }
+
     }
 
-    private fun initObservers() {
+    override fun initObservers() {
         lifecycleScope.launch(Dispatchers.Main) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.jobs.collect {

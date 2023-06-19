@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_jobsListFragment_to_jobDetailsFragment"
             app:destination="@id/jobDetailsFragment" />
+        <action
+            android:id="@+id/action_jobsListFragment_to_createJobFragment"
+            app:destination="@id/createJobFragment" />
     </fragment>
 
     <fragment
@@ -26,4 +29,9 @@
             android:defaultValue="0" />
 
     </fragment>
+    <fragment
+        android:id="@+id/createJobFragment"
+        android:name="com.example.joblogger.screens.createjob.CreateJobFragment"
+        android:label="fragment_create_job"
+        tools:layout="@layout/fragment_create_job" />
 </navigation>

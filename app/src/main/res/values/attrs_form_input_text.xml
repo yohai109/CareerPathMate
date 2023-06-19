@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="FormInputText">
+        <attr name="label" format="string" />
+        <attr name="placeholder" format="string" />
+    </declare-styleable>
+</resources>
