@@ -19,7 +19,7 @@ data class JobUiModel @JvmOverloads constructor(
 }
 
 enum class JobUiStatus(
-    @StringRes name: Int
+    @StringRes val title: Int
 ) {
     OnGoing(R.string.status_ongoing),
     Old(R.string.status_old),

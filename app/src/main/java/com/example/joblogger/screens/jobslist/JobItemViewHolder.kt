@@ -20,7 +20,7 @@ class JobItemViewHolder(
         currJob = job
         binding.apply {
             companyName.text = currJob.companyName
-            status.text = currJob.status.name
+            status.setText(currJob.status.title)
         }
     }
 }

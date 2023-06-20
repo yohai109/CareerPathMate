@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="status_ongoing">On Going</string>
-    <string name="status_yes">yes</string>
-    <string name="status_no">no</string>
-    <string name="status_old">old</string>
+    <string name="status_yes">Yes</string>
+    <string name="status_no">No</string>
+    <string name="status_old">Old</string>
 </resources>
