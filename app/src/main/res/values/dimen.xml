@@ -4,4 +4,6 @@
 
     <dimen name="commonTextSize">14sp</dimen>
     <dimen name="titleTextSize">20sp</dimen>
+
+    <dimen name="exitTextPadding">8dp</dimen>
 </resources>

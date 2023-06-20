@@ -22,6 +22,9 @@
         android:textSize="@dimen/commonTextSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/formInputLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/formInputLabel"
+        android:background="@drawable/background_text_box"
+        android:padding="@dimen/exitTextPadding"
+        tools:hint="hello_blank_fragment"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

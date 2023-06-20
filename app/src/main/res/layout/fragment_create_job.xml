@@ -4,25 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/screenPadding"
     tools:context=".screens.createjob.CreateJobFragment">
 
-    <com.example.joblogger.customviews.FormInputText
-        android:id="@+id/companyNameInputText"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:label="title"
+        android:layout_height="0dp"
+        android:padding="@dimen/screenPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:placeholder="please Enter company name" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.joblogger.customviews.FormInputText
+            android:id="@+id/companyNameInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:label="title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeholder="please Enter company name" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/createJobFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/ic_checkmark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_checkmark"/>
+        app:useCompatPadding="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

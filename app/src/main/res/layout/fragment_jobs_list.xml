@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/screenPadding"
     tools:context=".screens.jobslist.JobsListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/jobsListRV"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="@dimen/screenPadding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,9 +20,10 @@
         android:id="@+id/newJobFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_plus"/>
+        app:useCompatPadding="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

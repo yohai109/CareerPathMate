@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status_ongoing">בתהליך</string>
+    <string name="status_yes">כן</string>
+    <string name="status_no">לא</string>
+    <string name="status_old">ישן</string>
+</resources>
