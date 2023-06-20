@@ -36,12 +36,12 @@ enum class JobStatus {
     }
 }
 
-object JobDiffUtil : DiffUtil.ItemCallback<JobEntity>() {
-    override fun areItemsTheSame(oldItem: JobEntity, newItem: JobEntity): Boolean =
+object JobDiffUtil : DiffUtil.ItemCallback<JobUiModel>() {
+    override fun areItemsTheSame(oldItem: JobUiModel, newItem: JobUiModel): Boolean =
         oldItem.id == newItem.id
 
 
-    override fun areContentsTheSame(oldItem: JobEntity, newItem: JobEntity): Boolean =
+    override fun areContentsTheSame(oldItem: JobUiModel, newItem: JobUiModel): Boolean =
         oldItem == newItem
 
 }
