@@ -10,5 +10,5 @@ import com.example.joblogger.local.model.JobEntity
     entities = [JobEntity::class]
 )
 abstract class MainDatabase : RoomDatabase() {
-    abstract fun jobsDao() : JobsDao
+    abstract fun jobsDao(): JobsDao
 }

@@ -10,7 +10,7 @@
         android:id="@+id/companyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="@dimen/titleTextSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Company name" />
@@ -19,11 +19,23 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
         android:textSize="@dimen/commonTextSize"
         app:layout_constraintBottom_toBottomOf="@+id/companyName"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/statusIcon"
         app:layout_constraintTop_toTopOf="@+id/companyName"
         tools:text="status" />
+
+    <ImageView
+        android:id="@+id/statusIcon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/status"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/status"
+        tools:src="@drawable/ic_checkmark" />
+
 
     <TextView
         android:id="@+id/contact"

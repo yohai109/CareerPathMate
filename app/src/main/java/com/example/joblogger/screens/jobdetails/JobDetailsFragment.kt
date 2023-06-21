@@ -45,6 +45,9 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         binding?.apply {
             companyName.text = jobToShow.companyName
             status.setText(jobToShow.status.title)
+            jobToShow.status.icon?.let {
+                statusIcon.setImageResource(it)
+            }
             contact.text = jobToShow.contactName
             description.text = jobToShow.description
         }

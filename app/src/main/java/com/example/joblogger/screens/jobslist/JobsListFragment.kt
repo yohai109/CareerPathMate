@@ -1,8 +1,5 @@
 package com.example.joblogger.screens.jobslist
 
-import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -25,28 +22,24 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
     private val viewModel: JobListViewModel by viewModels()
 
     override fun FragmentJobsListBinding.initUI() {
-            newJobFab.setOnClickListener {
-                findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
-            }
+        newJobFab.setOnClickListener {
+            findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
+        }
 
-            jobsListRV.adapter = JobListAdapter() {
-                val toast = Toast(context?.applicationContext)
-                toast.setText("clicked on ${it.companyName} id: ${it.id}")
-                toast.show()
-
-                val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
-                    jobId = it.id
-                )
-                root.findNavController().navigate(action)
-            }
-
-            jobsListRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-            val dividerItemDecoration = DividerItemDecoration(
-                jobsListRV.context,
-                RecyclerView.VERTICAL
+        jobsListRV.adapter = JobListAdapter() {
+            val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
+                jobId = it.id
             )
+            root.findNavController().navigate(action)
+        }
 
-            jobsListRV.addItemDecoration(dividerItemDecoration)
+        jobsListRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        val dividerItemDecoration = DividerItemDecoration(
+            jobsListRV.context,
+            RecyclerView.VERTICAL
+        )
+
+        jobsListRV.addItemDecoration(dividerItemDecoration)
 
     }
 

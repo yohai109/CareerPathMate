@@ -1,5 +1,6 @@
 package com.example.joblogger.uimodels
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.joblogger.R
 import com.example.joblogger.local.model.JobEntity
@@ -23,12 +24,13 @@ data class JobUiModel @JvmOverloads constructor(
 }
 
 enum class JobUiStatus(
-    @StringRes val title: Int
+    @StringRes val title: Int,
+    @DrawableRes val icon: Int?
 ) {
-    OnGoing(R.string.status_ongoing),
-    Old(R.string.status_old),
-    Yes(R.string.status_yes),
-    No(R.string.status_no);
+    OnGoing(R.string.status_ongoing, R.drawable.ic_ongoing),
+    Old(R.string.status_old, R.drawable.ic_old),
+    Yes(R.string.status_yes, R.drawable.ic_checkmark_green),
+    No(R.string.status_no, R.drawable.ic_red_x);
 
     companion object {
         fun fromJobStatus(status: JobStatus) = when (status) {

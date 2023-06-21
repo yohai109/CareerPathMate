@@ -11,7 +11,7 @@ data class JobEntity @JvmOverloads constructor(
     @PrimaryKey val id: String = UUID.randomUUID().toString(),
     val companyName: String,
     val contactName: String,
-    val description:String,
+    val description: String,
     val status: JobStatus = JobStatus.OnGoing
 ) {
     constructor(jobUiModel: JobUiModel) : this(

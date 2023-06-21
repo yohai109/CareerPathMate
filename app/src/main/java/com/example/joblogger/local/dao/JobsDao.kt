@@ -11,5 +11,5 @@ abstract class JobsDao : BaseDao<JobEntity> {
     abstract fun getAll(): Flow<List<JobEntity>>
 
     @Query("SELECT * FROM jobs WHERE id==:id")
-    abstract fun getById(id:String):Flow<JobEntity>
+    abstract fun getById(id: String): Flow<JobEntity>
 }
