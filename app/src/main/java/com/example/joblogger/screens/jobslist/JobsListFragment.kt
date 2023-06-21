@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobsListBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,12 +27,21 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
         }
 
-        jobsListRV.adapter = JobListAdapter() {
-            val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
-                jobId = it.id
-            )
-            root.findNavController().navigate(action)
-        }
+        jobsListRV.adapter = JobListAdapter(
+            onClickListener = {
+                val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
+                    jobId = it.id
+                )
+                root.findNavController().navigate(action)
+            },
+            onLongClickListener = {
+                //TODO show bottomSheet
+                val action = JobsListFragmentDirections.actionJobsListFragmentToJobListLongClickDialog(
+                    jobId = it.id
+                )
+                root.findNavController().navigate(action)
+            }
+        )
 
         jobsListRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         val dividerItemDecoration = DividerItemDecoration(

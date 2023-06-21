@@ -6,13 +6,19 @@ import com.example.joblogger.uimodels.JobUiModel
 
 class JobItemViewHolder(
     private val binding: ItemJobBinding,
-    val onClickListener: ((JobUiModel) -> Unit)
+    val onClickListener: ((JobUiModel) -> Unit),
+    val longClickListener: ((JobUiModel) -> Unit),
 ) : RecyclerView.ViewHolder(binding.root) {
     lateinit var currJob: JobUiModel
 
     init {
         binding.root.setOnClickListener {
             onClickListener(currJob)
+        }
+
+        binding.root.setOnLongClickListener {
+            longClickListener(currJob)
+            true
         }
     }
 

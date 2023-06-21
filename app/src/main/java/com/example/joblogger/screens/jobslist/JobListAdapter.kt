@@ -9,11 +9,12 @@ import com.example.joblogger.uimodels.JobUiModel
 
 
 class JobListAdapter(
-    private val onClickListener: (JobUiModel) -> Unit
+    private val onClickListener: (JobUiModel) -> Unit,
+    private val onLongClickListener: (JobUiModel) -> Unit
 ) : ListAdapter<JobUiModel, JobItemViewHolder>(JobDiffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobItemViewHolder {
         val binding = ItemJobBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return JobItemViewHolder(binding, onClickListener)
+        return JobItemViewHolder(binding, onClickListener, onLongClickListener)
     }
 
     override fun onBindViewHolder(holder: JobItemViewHolder, position: Int) {

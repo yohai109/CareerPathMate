@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_jobsListFragment_to_createJobFragment"
             app:destination="@id/createJobFragment" />
+        <action
+            android:id="@+id/action_jobsListFragment_to_jobListLongClickDialog"
+            app:destination="@id/jobListLongClickDialog" />
     </fragment>
 
     <fragment
@@ -34,4 +37,14 @@
         android:name="com.example.joblogger.screens.createjob.CreateJobFragment"
         android:label="fragment_create_job"
         tools:layout="@layout/fragment_create_job" />
+
+    <dialog
+        android:id="@+id/jobListLongClickDialog"
+        android:name="com.example.joblogger.screens.jobslist.longclickdialog.LongClickDialog"
+        tools:layout="@layout/dialog_job_list_long_click">
+        <argument
+            android:name="jobId"
+            app:argType="string"
+            android:defaultValue="0" />
+    </dialog>
 </navigation>

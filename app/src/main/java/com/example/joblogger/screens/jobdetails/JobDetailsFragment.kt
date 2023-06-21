@@ -1,5 +1,6 @@
 package com.example.joblogger.screens.jobdetails
 
+import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -19,14 +20,12 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     private val viewModel: JobDetailsViewModel by viewModels()
     private var jobId: String? = null
 
-
     override fun FragmentJobDetailsBinding.initUI() {}
 
-    override fun initArguments() {
-        arguments?.let {
-            val arg = JobDetailsFragmentArgs.fromBundle(it)
-            jobId = arg.jobId
-        }
+    override fun Bundle.initArguments() {
+        val arg = JobDetailsFragmentArgs.fromBundle(this)
+        jobId = arg.jobId
+
     }
 
     override fun initObservers() {

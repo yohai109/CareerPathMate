@@ -3,6 +3,7 @@ package com.example.joblogger.local.dao
 import androidx.room.Dao
 import androidx.room.Query
 import com.example.joblogger.local.model.JobEntity
+import com.example.joblogger.local.model.JobStatus
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -12,4 +13,7 @@ abstract class JobsDao : BaseDao<JobEntity> {
 
     @Query("SELECT * FROM jobs WHERE id==:id")
     abstract fun getById(id: String): Flow<JobEntity>
+
+    @Query("UPDATE jobs SET status=:newStatus WHERE id==:id")
+    abstract suspend fun updateStatus(id: String, newStatus: JobStatus)
 }
