@@ -1,14 +1,12 @@
 package com.example.joblogger.screens.jobdetails
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobDetailsBinding
-import com.example.joblogger.local.model.JobEntity
+import com.example.joblogger.uimodels.JobUiModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,9 +41,12 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         }
     }
 
-    private fun updateUI(jobToShow: JobEntity) {
+    private fun updateUI(jobToShow: JobUiModel) {
         binding?.apply {
             companyName.text = jobToShow.companyName
+            status.setText(jobToShow.status.title)
+            contact.text = jobToShow.contactName
+            description.text = jobToShow.description
         }
     }
 

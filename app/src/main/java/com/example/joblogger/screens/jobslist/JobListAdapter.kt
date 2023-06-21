@@ -4,8 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.joblogger.databinding.ItemJobBinding
-import com.example.joblogger.local.model.JobEntity
-import com.example.joblogger.local.model.JobDiffUtil
+import com.example.joblogger.uimodels.JobDiffUtil
 import com.example.joblogger.uimodels.JobUiModel
 
 

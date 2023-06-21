@@ -12,7 +12,9 @@ import javax.inject.Inject
 @HiltViewModel
 class CreateJobViewModel @Inject constructor(private val repo: CreateJobRepo) : ViewModel() {
     var jobToCreate = JobUiModel(
-        companyName = ""
+        companyName = "",
+        description = "",
+        contactName = ""
     )
 
     fun save() {

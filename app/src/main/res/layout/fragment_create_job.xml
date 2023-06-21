@@ -20,10 +20,7 @@
             android:id="@+id/companyNameInputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:label="title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:label="Job title"
             app:placeholder="please Enter company name" />
 
         <TextView
@@ -38,7 +35,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_text_box"
-            android:padding="@dimen/exitTextPadding"/>
+            android:padding="@dimen/exitTextPadding" />
+
+        <com.example.joblogger.customviews.FormInputText
+            android:id="@+id/contactInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/formItemsSpacing"
+            app:label="contact name"
+            app:placeholder="PLease enter the name of your contact" />
+
+        <com.example.joblogger.customviews.FormInputText
+            android:id="@+id/descriptionInputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/formItemsSpacing"
+            app:label="Company Description"
+            app:placeholder="please enter a short description of the company" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

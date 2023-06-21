@@ -6,4 +6,6 @@
     <dimen name="titleTextSize">20sp</dimen>
 
     <dimen name="exitTextPadding">8dp</dimen>
+
+    <dimen name="formItemsSpacing">16dp</dimen>
 </resources>

@@ -13,26 +13,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class JobListViewModel @Inject constructor(private val db: MainDatabase) : ViewModel() {
-//    val jobs = MutableStateFlow(
-//        arrayListOf(
-//            JobEntity(companyName = "first"),
-//            JobEntity(companyName = "first"),
-//            JobEntity(companyName = "first"),
-//            JobEntity(companyName = "first"),
-//            JobEntity(companyName = "first"),
-//            JobEntity(companyName = "first"),
-//        )
-//    )
-
     val jobs = db.jobsDao().getAll().map {
         it.map {
             JobUiModel(it)
-        }
-    }
-
-    fun createJob() {
-        viewModelScope.launch(Dispatchers.IO) {
-            db.jobsDao().upsert(JobEntity(companyName = "New job"))
         }
     }
 }

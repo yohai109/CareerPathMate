@@ -9,11 +9,15 @@ import java.util.UUID
 data class JobUiModel @JvmOverloads constructor(
     val id: String = UUID.randomUUID().toString(),
     val companyName: String,
+    val contactName: String,
+    val description: String,
     val status: JobUiStatus = JobUiStatus.OnGoing
 ) {
     constructor(jobEntity: JobEntity) : this(
         id = jobEntity.id,
         companyName = jobEntity.companyName,
+        contactName = jobEntity.contactName,
+        description = jobEntity.description,
         status = JobUiStatus.fromJobStatus(jobEntity.status)
     )
 }
