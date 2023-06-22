@@ -1,10 +1,21 @@
 <resources>
     <string name="app_name" translatable="false">JobTracking</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <string name="status_ongoing">On Going</string>
-    <string name="status_yes">Yes</string>
-    <string name="status_no">No</string>
-    <string name="status_old">Old</string>
+    <string name="job_status_yes">Yes</string>
+    <string name="job_status_no">No</string>
+    <string name="job_status_old">Old</string>
+
+    <string name="job_location_onsite">on Site</string>
+    <string name="job_location_hybrid">Hybrid</string>
+    <string name="job_location_remote">Remote</string>
+
+    <string name="step_status_done">Done</string>
+    <string name="step_status_current">Current</string>
+    <string name="step_status_future">Future</string>
+
+    <string name="step_location_remote">Remote</string>
+    <string name="step_location_onsite">on Site</string>
 </resources>

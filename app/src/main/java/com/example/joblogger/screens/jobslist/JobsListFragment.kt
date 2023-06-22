@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobsListBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,9 +35,10 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             },
             onLongClickListener = {
                 //TODO show bottomSheet
-                val action = JobsListFragmentDirections.actionJobsListFragmentToJobListLongClickDialog(
-                    jobId = it.id
-                )
+                val action =
+                    JobsListFragmentDirections.actionJobsListFragmentToJobListLongClickDialog(
+                        jobId = it.id
+                    )
                 root.findNavController().navigate(action)
             }
         )

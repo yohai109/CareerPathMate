@@ -3,55 +3,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/screenPadding">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/companyName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/titleTextSize"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Company name" />
-
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintBottom_toBottomOf="@+id/companyName"
-        app:layout_constraintEnd_toStartOf="@+id/statusIcon"
-        app:layout_constraintTop_toTopOf="@+id/companyName"
-        tools:text="status" />
-
-    <ImageView
-        android:id="@+id/statusIcon"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/status"
-        app:layout_constraintDimensionRatio="1:1"
+        android:padding="@dimen/screenPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/status"
-        tools:src="@drawable/ic_checkmark" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/companyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/titleTextSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Company name" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintBottom_toBottomOf="@+id/companyName"
+            app:layout_constraintEnd_toStartOf="@+id/statusIcon"
+            app:layout_constraintTop_toTopOf="@+id/companyName"
+            tools:text="status" />
+
+        <ImageView
+            android:id="@+id/statusIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/status"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/status"
+            tools:src="@drawable/ic_checkmark" />
 
 
-    <TextView
-        android:id="@+id/contact"
+        <TextView
+            android:id="@+id/contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintStart_toStartOf="@+id/companyName"
+            app:layout_constraintTop_toBottomOf="@+id/companyName"
+            tools:text="contact" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintStart_toStartOf="@+id/contact"
+            app:layout_constraintTop_toBottomOf="@+id/contact"
+            tools:text="description" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/jobDetailsFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintStart_toStartOf="@+id/companyName"
-        app:layout_constraintTop_toBottomOf="@+id/companyName"
-        tools:text="contact" />
-
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintStart_toStartOf="@+id/contact"
-        app:layout_constraintTop_toBottomOf="@+id/contact"
-        tools:text="description" />
+        android:src="@drawable/ic_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:useCompatPadding="true" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,5 +22,9 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideVideoDao(db: MainDatabase) = db.jobsDao()
+    fun provideJobsDao(db: MainDatabase) = db.jobsDao()
+
+    @Provides
+    @Singleton
+    fun provideStepsDao(db: MainDatabase) = db.stepsDao()
 }

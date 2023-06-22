@@ -12,29 +12,41 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 @AndroidEntryPoint
 class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     FragmentJobDetailsBinding::inflate
 ) {
     private val viewModel: JobDetailsViewModel by viewModels()
-    private var jobId: String? = null
 
-    override fun FragmentJobDetailsBinding.initUI() {}
+    override fun FragmentJobDetailsBinding.initUI() {
+        jobDetailsFAB.setOnClickListener {
+            viewModel.createStep()
+        }
+    }
 
     override fun Bundle.initArguments() {
         val arg = JobDetailsFragmentArgs.fromBundle(this)
-        jobId = arg.jobId
+        viewModel.jobId = arg.jobId
 
     }
 
     override fun initObservers() {
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
-                viewModel.currJob(jobId ?: "").collect {
+                viewModel.currJob().collect {
                     withContext(Dispatchers.Main) {
                         updateUI(it)
                     }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.steps().collect {
+                    Timber.d("received ${it.size} steps")
                 }
             }
         }
@@ -44,7 +56,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         binding?.apply {
             companyName.text = jobToShow.companyName
             status.setText(jobToShow.status.title)
-            jobToShow.status.icon?.let {
+            jobToShow.status.icon.let {
                 statusIcon.setImageResource(it)
             }
             contact.text = jobToShow.contactName
@@ -54,6 +66,5 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
 
     override fun onDestroyView() {
         super.onDestroyView()
-        jobId = null
     }
 }
