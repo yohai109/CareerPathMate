@@ -1,5 +1,6 @@
 package com.example.joblogger.uimodels
 
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.joblogger.R
@@ -29,11 +30,12 @@ data class JobStepUiModel(
 
 enum class StepStatusUi(
     @StringRes val title: Int,
-    @DrawableRes val icon: Int
+    @DrawableRes val icon: Int,
+    @ColorRes val indicatorColor:Int
 ) {
-    Done(R.string.step_status_done, 0),
-    Current(R.string.step_status_current, 0),
-    Future(R.string.step_status_future, 0);
+    Done(R.string.step_status_done, R.drawable.ic_checkmark, R.color.green600),
+    Current(R.string.step_status_current, R.drawable.ic_ongoing, R.color.lightBlue500),
+    Future(R.string.step_status_future, R.drawable.ic_future,R.color.amber600);
 
     companion object {
         fun fromStepStatus(status: StepStatus) = when (status) {
@@ -48,8 +50,8 @@ enum class StepLocationUi(
     @StringRes val title: Int,
     @DrawableRes val icon: Int
 ) {
-    OnSite(R.string.step_location_onsite, 0),
-    Remote(R.string.step_location_remote, 0);
+    OnSite(R.string.step_location_onsite, R.drawable.ic_onsite),
+    Remote(R.string.step_location_remote, R.drawable.ic_remote);
 
     companion object {
         fun fromStepLocation(location: StepLocation) = when (location) {

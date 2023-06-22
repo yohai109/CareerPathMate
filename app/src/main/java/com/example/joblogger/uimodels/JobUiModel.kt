@@ -30,9 +30,9 @@ enum class JobLocationUi(
     @StringRes val title: Int,
     @DrawableRes val icon: Int
 ) {
-    OnSite(R.string.job_location_onsite, 0),
-    Remote(R.string.job_location_remote, 0),
-    Hybrid(R.string.job_location_hybrid, 0);
+    OnSite(R.string.job_location_onsite, R.drawable.ic_onsite),
+    Remote(R.string.job_location_remote, R.drawable.ic_remote),
+    Hybrid(R.string.job_location_hybrid, R.drawable.ic_hybrid);
 
     companion object {
         fun fromJobLocation(location: JobLocation) = when (location) {

@@ -5,6 +5,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobDetailsBinding
 import com.example.joblogger.uimodels.JobUiModel
@@ -24,6 +26,9 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         jobDetailsFAB.setOnClickListener {
             viewModel.createStep()
         }
+
+        stepsRV.adapter = JobStepsAdapter()
+        stepsRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
     override fun Bundle.initArguments() {
@@ -37,7 +42,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.currJob().collect {
                     withContext(Dispatchers.Main) {
-                        updateUI(it)
+                        jobInfo(it)
                     }
                 }
             }
@@ -47,20 +52,23 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.steps().collect {
                     Timber.d("received ${it.size} steps")
+                    (binding?.stepsRV?.adapter as? JobStepsAdapter)?.submitList(it)
                 }
             }
         }
     }
 
-    private fun updateUI(jobToShow: JobUiModel) {
+    private fun jobInfo(jobToShow: JobUiModel) {
         binding?.apply {
             companyName.text = jobToShow.companyName
-            status.setText(jobToShow.status.title)
-            jobToShow.status.icon.let {
-                statusIcon.setImageResource(it)
-            }
             contact.text = jobToShow.contactName
             description.text = jobToShow.description
+
+            status.setText(jobToShow.status.title)
+            statusIcon.setImageResource(jobToShow.status.icon)
+
+            location.setText(jobToShow.location.title)
+            locationIcon.setImageResource(jobToShow.location.icon)
         }
     }
 
