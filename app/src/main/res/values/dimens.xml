@@ -2,10 +2,13 @@
 <resources>
     <dimen name="screenPadding">16dp</dimen>
 
-    <dimen name="commonTextSize">14sp</dimen>
+    <dimen name="commonTextSize">16sp</dimen>
     <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="subTitleTextSize">18sp</dimen>
 
     <dimen name="exitTextPadding">8dp</dimen>
 
     <dimen name="formItemsSpacing">16dp</dimen>
+    <dimen name="commonMargin">2dp</dimen>
+    <dimen name="indicatorWidth">4dp</dimen>
 </resources>

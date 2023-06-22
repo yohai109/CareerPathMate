@@ -7,7 +7,7 @@
 
     <View
         android:id="@+id/indicator"
-        android:layout_width="4dp"
+        android:layout_width="@dimen/indicatorWidth"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:textSize="16sp"
+        android:textSize="@dimen/subTitleTextSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/indicator"
         app:layout_constraintTop_toTopOf="parent"

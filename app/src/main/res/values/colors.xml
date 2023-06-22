@@ -9,5 +9,6 @@
     <color name="purpleA700">#AA00FF</color>
 
     <color name="amber600">#FFB300</color>
+    <color name="red700">#D32F2F</color>
     <color name="lightBlue500">#03A9F4</color>
 </resources>

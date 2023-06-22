@@ -1,5 +1,6 @@
 package com.example.joblogger.uimodels
 
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.joblogger.R
@@ -45,12 +46,13 @@ enum class JobLocationUi(
 
 enum class JobUiStatus(
     @StringRes val title: Int,
-    @DrawableRes val icon: Int
+    @DrawableRes val icon: Int,
+    @ColorRes val indicatorColor: Int
 ) {
-    OnGoing(R.string.status_ongoing, R.drawable.ic_ongoing),
-    Old(R.string.job_status_old, R.drawable.ic_old),
-    Yes(R.string.job_status_yes, R.drawable.ic_checkmark_green),
-    No(R.string.job_status_no, R.drawable.ic_red_x);
+    OnGoing(R.string.status_ongoing, R.drawable.ic_ongoing, R.color.lightBlue500),
+    Old(R.string.job_status_old, R.drawable.ic_old, R.color.amber600),
+    Yes(R.string.job_status_yes, R.drawable.ic_checkmark_green, R.color.green600),
+    No(R.string.job_status_no, R.drawable.ic_red_x, R.color.red700);
 
     companion object {
         fun fromJobStatus(status: JobStatus) = when (status) {

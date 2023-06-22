@@ -27,7 +27,8 @@ class JobItemViewHolder(
         binding.apply {
             companyName.text = currJob.companyName
             status.setText(currJob.status.title)
-            currJob.status.icon?.let { statusIcon.setImageResource(it) }
+            statusIcon.setImageResource(currJob.status.icon)
+            indicator.setBackgroundResource(currJob.status.indicatorColor)
         }
     }
 }
