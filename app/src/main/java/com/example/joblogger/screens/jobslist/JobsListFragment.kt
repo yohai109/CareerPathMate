@@ -34,12 +34,19 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
                 root.findNavController().navigate(action)
             },
             onLongClickListener = {
-                //TODO show bottomSheet
+                val navController = root.findNavController()
                 val action =
                     JobsListFragmentDirections.actionJobsListFragmentToJobListLongClickDialog(
                         jobId = it.id
                     )
-                root.findNavController().navigate(action)
+                navController.navigate(action)
+//                root.findNavController().navigate(R.id.action_jobsListFragment_to_jobListLongClickDialog, bundleOf("jobId" to it.id))
+//                LongClickDialog().apply {
+//                    arguments = Bundle().apply {
+//                        putString("jobId", it.id)
+//                    }
+//                    show(childFragmentManager, LongClickDialog::class.simpleName)
+//                }
             }
         )
 

@@ -15,23 +15,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/companyName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/titleTextSize"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Company name" />
-
-        <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
             android:textSize="@dimen/commonTextSize"
-            app:layout_constraintBottom_toBottomOf="@+id/companyName"
+            app:layout_constraintBottom_toBottomOf="@+id/contact"
             app:layout_constraintEnd_toStartOf="@+id/statusIcon"
-            app:layout_constraintTop_toTopOf="@+id/companyName"
+            app:layout_constraintTop_toTopOf="@+id/contact"
             tools:text="status" />
 
         <ImageView
@@ -71,8 +62,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:textSize="@dimen/commonTextSize"
-            app:layout_constraintStart_toStartOf="@+id/companyName"
-            app:layout_constraintTop_toBottomOf="@+id/companyName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="contact" />
 
         <TextView
@@ -87,9 +78,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stepsRV"
-            android:layout_marginTop="2dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

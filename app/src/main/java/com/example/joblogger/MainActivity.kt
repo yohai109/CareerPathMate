@@ -1,6 +1,7 @@
 package com.example.joblogger
 
 import android.os.Bundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -20,5 +21,13 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as? NavHostFragment
                 )?.navController
         controller?.let { binding.toolbar.setupWithNavController(it) }
+    }
+
+    fun setToolbarTitle(newTitle: String) {
+        supportActionBar?.title = newTitle
+    }
+
+    fun setToolbarTitle(@StringRes newTitle: Int){
+        supportActionBar?.setTitle(newTitle)
     }
 }

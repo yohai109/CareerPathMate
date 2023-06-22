@@ -2,6 +2,8 @@ package com.example.joblogger.screens.createjob
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.example.joblogger.MainActivity
+import com.example.joblogger.R
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentCreateJobBinding
 import com.example.joblogger.uimodels.JobUiStatus
@@ -14,6 +16,8 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
     private val viewModel: CreateJobViewModel by viewModels()
 
     override fun FragmentCreateJobBinding.initUI() {
+        (activity as? MainActivity)?.setToolbarTitle(R.string.create_job_title)
+
         createJobFAB.setOnClickListener {
             viewModel.jobToCreate = viewModel.jobToCreate.copy(
                 companyName = companyNameInputText.input.text.toString(),

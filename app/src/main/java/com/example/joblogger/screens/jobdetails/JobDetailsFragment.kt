@@ -7,6 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.joblogger.MainActivity
+import com.example.joblogger.R
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobDetailsBinding
 import com.example.joblogger.uimodels.JobUiModel
@@ -60,7 +62,8 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
 
     private fun jobInfo(jobToShow: JobUiModel) {
         binding?.apply {
-            companyName.text = jobToShow.companyName
+            (activity as? MainActivity)?.setToolbarTitle(jobToShow.companyName)
+
             contact.text = jobToShow.contactName
             description.text = jobToShow.description
 

@@ -18,7 +18,7 @@
             app:destination="@id/createJobFragment" />
         <action
             android:id="@+id/action_jobsListFragment_to_jobListLongClickDialog"
-            app:destination="@id/jobListLongClickDialog" />
+            app:destination="@id/LongClickDialog" />
     </fragment>
 
     <fragment
@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_create_job" />
 
     <dialog
-        android:id="@+id/jobListLongClickDialog"
+        android:id="@+id/LongClickDialog"
         android:name="com.example.joblogger.screens.jobslist.longclickdialog.LongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument

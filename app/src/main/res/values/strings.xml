@@ -18,4 +18,5 @@
 
     <string name="step_location_remote">Remote</string>
     <string name="step_location_onsite">on Site</string>
+    <string name="create_job_title">Create new Job</string>
 </resources>
