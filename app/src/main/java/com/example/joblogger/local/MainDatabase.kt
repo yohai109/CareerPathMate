@@ -13,7 +13,6 @@ import com.example.joblogger.local.typeconverters.DateTypeConverter
     version = 1,
     entities = [JobEntity::class, JobStepEntity::class],
     autoMigrations = [
-//        AutoMigration(from = 1, to = 2)
     ]
 )
 @TypeConverters(

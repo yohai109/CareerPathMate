@@ -11,17 +11,18 @@
         android:layout_width="@dimen/indicatorWidth"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/companyName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintStart_toEndOf="@id/indicator"
         android:layout_marginStart="2dp"
+        android:textAlignment="viewStart"
+        android:textSize="@dimen/commonTextSize"
+        app:layout_constraintEnd_toStartOf="@id/status"
+        app:layout_constraintStart_toEndOf="@id/indicator"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="company name" />
 
@@ -31,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:textSize="@dimen/commonTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/statusIcon"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="status" />

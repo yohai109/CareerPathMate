@@ -5,6 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/indicatorsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintEnd_toStartOf="@+id/statusIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="status" />
+
+        <ImageView
+            android:id="@+id/statusIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/status"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/status"
+            tools:src="@drawable/ic_checkmark" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="4dp"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintEnd_toStartOf="@+id/statusIcon"
+            app:layout_constraintTop_toBottomOf="@id/status"
+            tools:text="location" />
+
+        <ImageView
+            android:id="@+id/locationIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/location"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/location"
+            tools:src="@drawable/ic_checkmark" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <View
         android:id="@+id/indicator"
         android:layout_width="@dimen/indicatorWidth"
@@ -13,66 +63,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/stepName"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:textSize="@dimen/subTitleTextSize"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/indicatorsContainer"
         app:layout_constraintStart_toEndOf="@id/indicator"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Step name" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintEnd_toEndOf="@id/stepName"
-        app:layout_constraintStart_toStartOf="@id/stepName"
-        app:layout_constraintTop_toBottomOf="@id/stepName"
-        tools:text="date" />
+        <TextView
+            android:id="@+id/stepName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/subTitleTextSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Step name" />
 
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintEnd_toStartOf="@+id/statusIcon"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="status" />
-
-    <ImageView
-        android:id="@+id/statusIcon"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/status"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/status"
-        tools:src="@drawable/ic_checkmark" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:textSize="@dimen/commonTextSize"
-        app:layout_constraintEnd_toStartOf="@+id/statusIcon"
-        app:layout_constraintTop_toBottomOf="@id/status"
-        tools:text="location" />
-
-    <ImageView
-        android:id="@+id/locationIcon"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/location"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/location"
-        tools:src="@drawable/ic_checkmark" />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/commonTextSize"
+            app:layout_constraintEnd_toEndOf="@id/stepName"
+            app:layout_constraintStart_toStartOf="@id/stepName"
+            app:layout_constraintTop_toBottomOf="@id/stepName"
+            tools:text="date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

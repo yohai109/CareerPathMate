@@ -27,4 +27,12 @@
     <string name="mark_as_done_action_title">Mark as Done</string>
     <string name="mark_as_current_action_title">Mark as Current</string>
     <string name="mark_as_future_action_title">Mark As Future</string>
+    <string name="company_name_label">Company name</string>
+    <string name="status_label">Status</string>
+    <string name="company_name_placeholder">please Enter company name</string>
+    <string name="contact_name_label">contact name</string>
+    <string name="contact_name_placeholder">Please enter the name of your contact</string>
+    <string name="company_description_label">Company Description</string>
+    <string name="company_description_placeholder">please enter a short description of the company</string>
+    <string name="location_label">Location</string>
 </resources>
