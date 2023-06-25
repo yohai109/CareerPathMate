@@ -10,5 +10,6 @@
 
     <dimen name="formItemsSpacing">16dp</dimen>
     <dimen name="commonMargin">2dp</dimen>
+    <dimen name="commonLargeMargin">8dp</dimen>
     <dimen name="indicatorWidth">4dp</dimen>
 </resources>

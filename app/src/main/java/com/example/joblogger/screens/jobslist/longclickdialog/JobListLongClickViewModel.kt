@@ -16,4 +16,10 @@ class JobListLongClickViewModel @Inject constructor(private val repo: JobListRep
             repo.updateStatus(id, newStatus)
         }
     }
+
+    fun deleteJob(id: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.deleteJobs(id)
+        }
+    }
 }

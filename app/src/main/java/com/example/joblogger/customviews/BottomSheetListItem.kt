@@ -3,41 +3,30 @@ package com.example.joblogger.customviews
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.EditText
+import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.joblogger.R
-import com.example.joblogger.databinding.FormInputTextBinding
+import com.example.joblogger.databinding.BottomSheetListItemBinding
 
-/**
- * TODO: document your custom view class.
- */
-class FormInputText @JvmOverloads constructor(
+class BottomSheetListItem @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0
 ) : ConstraintLayout(context, attrs, defStyle) {
     var label: String? = null
-    var placeholder: String? = null
 
-    private val binding = FormInputTextBinding.inflate(
+    @DrawableRes
+    var icon: Int? = null
+
+    private val binding = BottomSheetListItemBinding.inflate(
         LayoutInflater.from(context),
         this,
         true
     )
 
-    val input: EditText
-        get() = binding.formInputText
-
     init {
         loadAttrs(context, attrs, defStyle)
         initUI()
-    }
-
-    private fun initUI() {
-        binding.apply {
-            formInputLabel.text = label
-            formInputText.hint = placeholder
-        }
     }
 
     private fun loadAttrs(
@@ -47,17 +36,25 @@ class FormInputText @JvmOverloads constructor(
     ) {
         val loadedAttrs = context.obtainStyledAttributes(
             attrs,
-            R.styleable.FormInputText,
+            R.styleable.BottomSheetListItem,
             defStyle,
             0
         )
 
         label = loadedAttrs.getString(
-            R.styleable.FormInputText_label
+            R.styleable.BottomSheetListItem_label
         )
-        placeholder = loadedAttrs.getString(
-            R.styleable.FormInputText_placeholder
+        icon = loadedAttrs.getResourceId(
+            R.styleable.BottomSheetListItem_icon,
+            0,
         )
         loadedAttrs.recycle()
+    }
+
+    private fun initUI() {
+        binding.apply {
+            icon?.let { actionIcon.setImageResource(it) }
+            actionText.text = label
+        }
     }
 }

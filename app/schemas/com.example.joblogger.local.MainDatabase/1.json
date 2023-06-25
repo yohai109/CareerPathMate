@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "043096c9f130e0cd048de2033b29b6e7",
+    "identityHash": "9d021794031acf572af3cca03c630080",
     "entities": [
       {
         "tableName": "jobs",
@@ -56,7 +56,7 @@
       },
       {
         "tableName": "JobSteps",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `date` TEXT NOT NULL, `name` TEXT NOT NULL, `status` TEXT NOT NULL, `location` TEXT NOT NULL, `jobId` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`jobId`) REFERENCES `jobs`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `date` TEXT NOT NULL, `name` TEXT NOT NULL, `status` TEXT NOT NULL, `location` TEXT NOT NULL, `jobId` TEXT NOT NULL, PRIMARY KEY(`id`), FOREIGN KEY(`jobId`) REFERENCES `jobs`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -105,7 +105,7 @@
         "foreignKeys": [
           {
             "table": "jobs",
-            "onDelete": "NO ACTION",
+            "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
               "jobId"
@@ -120,7 +120,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '043096c9f130e0cd048de2033b29b6e7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9d021794031acf572af3cca03c630080')"
     ]
   }
 }

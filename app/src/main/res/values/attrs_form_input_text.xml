@@ -1,6 +1,13 @@
 <resources>
+    <attr name="label" format="string" />
+
     <declare-styleable name="FormInputText">
-        <attr name="label" format="string" />
+        <attr name="label" />
         <attr name="placeholder" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomSheetListItem">
+        <attr name="label" />
+        <attr name="icon" format="reference" />
     </declare-styleable>
 </resources>

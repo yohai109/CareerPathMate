@@ -2,6 +2,7 @@ package com.example.joblogger.local.model
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.ForeignKey.Companion.CASCADE
 import androidx.room.PrimaryKey
 import com.example.joblogger.uimodels.JobStepUiModel
 import com.example.joblogger.uimodels.StepLocationUi
@@ -15,7 +16,8 @@ import java.util.UUID
         ForeignKey(
             entity = JobEntity::class,
             parentColumns = ["id"],
-            childColumns = ["jobId"]
+            childColumns = ["jobId"],
+            onDelete = CASCADE
         )
     ]
 )
