@@ -34,7 +34,7 @@ abstract class BaseBottomSheetDialogFragment<T : ViewBinding>(
 
     abstract fun T.initUI()
 
-    abstract fun initObservers()
+    open fun initObservers() {}
 
     open fun Bundle.initArguments() {}
 

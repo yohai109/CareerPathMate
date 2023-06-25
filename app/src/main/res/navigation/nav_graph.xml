@@ -18,7 +18,7 @@
             app:destination="@id/createJobFragment" />
         <action
             android:id="@+id/action_jobsListFragment_to_jobListLongClickDialog"
-            app:destination="@id/LongClickDialog" />
+            app:destination="@id/JobLongClickDialog" />
     </fragment>
 
     <fragment
@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_jobDetailsFragment_to_createJobStepFragment"
             app:destination="@id/createJobStepFragment" />
+        <action
+            android:id="@+id/action_jobDetailsFragment_to_StepLongClickDialog"
+            app:destination="@id/StepLongClickDialog" />
 
     </fragment>
     <fragment
@@ -53,16 +56,30 @@
     </fragment>
 
     <dialog
-        android:id="@+id/LongClickDialog"
+        android:id="@+id/JobLongClickDialog"
         android:name="com.example.joblogger.screens.jobslist.joblongclickdialog.JobLongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument
             android:name="jobId"
-            android:defaultValue="0"
+            android:defaultValue=""
             app:argType="string" />
         <argument
             android:name="jobStatus"
             android:defaultValue="OnGoing"
             app:argType="com.example.joblogger.uimodels.JobUiStatus" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/StepLongClickDialog"
+        android:name="com.example.joblogger.screens.jobdetails.steplongclickdialog.StepLongClickDialog"
+        tools:layout="@layout/dialog_step_long_click">
+        <argument
+            android:name="stepId"
+            android:defaultValue=""
+            app:argType="string" />
+        <argument
+            android:name="stepStatus"
+            android:defaultValue="Current"
+            app:argType="com.example.joblogger.uimodels.StepStatusUi" />
     </dialog>
 </navigation>

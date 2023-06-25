@@ -26,7 +26,6 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
 
     override fun FragmentJobDetailsBinding.initUI() {
         jobDetailsFAB.setOnClickListener {
-//            viewModel.createStep()
             val action = JobDetailsFragmentDirections
                 .actionJobDetailsFragmentToCreateJobStepFragment(
                     viewModel.jobId
@@ -34,7 +33,13 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             it.findNavController().navigate(action)
         }
 
-        stepsRV.adapter = JobStepsAdapter()
+        stepsRV.adapter = JobStepsAdapter() {
+            val action = JobDetailsFragmentDirections.actionJobDetailsFragmentToStepLongClickDialog(
+                it.id,
+                it.status
+            )
+            root.findNavController().navigate(action)
+        }
         stepsRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 

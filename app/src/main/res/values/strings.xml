@@ -24,4 +24,7 @@
     <string name="archive_action_title">Archive</string>
     <string name="mark_as_on_going_action_title">Mark As On Going</string>
     <string name="delete_action_title">Delete</string>
+    <string name="mark_as_done_action_title">Mark as Done</string>
+    <string name="mark_as_current_action_title">Mark as Current</string>
+    <string name="mark_as_future_action_title">Mark As Future</string>
 </resources>

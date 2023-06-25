@@ -33,8 +33,8 @@ enum class StepStatusUi(
     @DrawableRes val icon: Int,
     @ColorRes val indicatorColor:Int
 ) {
-    Done(R.string.step_status_done, R.drawable.ic_checkmark, R.color.green600),
     Current(R.string.step_status_current, R.drawable.ic_ongoing, R.color.lightBlue500),
+    Done(R.string.step_status_done, R.drawable.ic_checkmark_green, R.color.green600),
     Future(R.string.step_status_future, R.drawable.ic_future,R.color.amber600);
 
     companion object {

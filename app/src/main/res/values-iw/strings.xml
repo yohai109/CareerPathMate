@@ -7,4 +7,6 @@
     <string name="mark_as_no_action_title">Mark As No</string>
     <string name="mark_as_yes_action_title">Mark As Yes</string>
     <string name="archive_action_title">Archive</string>
+    <string name="mark_as_done_action_title">Mark as Done</string>
+    <string name="mark_as_current_action_title">Mark as Current</string>
 </resources>

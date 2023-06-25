@@ -22,10 +22,10 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
 
     override fun DialogJobListLongClickBinding.initUI() {
         when (currStatus) {
-            JobUiStatus.OnGoing -> marAsOnGoingAction.isVisible = false
-            JobUiStatus.Old -> marAsArchiveAction.isVisible = false
-            JobUiStatus.Yes -> marAsYesAction.isVisible = false
-            JobUiStatus.No -> marAsNoAction.isVisible = false
+            JobUiStatus.OnGoing -> markAsOnGoingAction.isVisible = false
+            JobUiStatus.Old -> markAsArchiveAction.isVisible = false
+            JobUiStatus.Yes -> markAsYesAction.isVisible = false
+            JobUiStatus.No -> markAsNoAction.isVisible = false
             null -> Toast.makeText(
                 context?.applicationContext,
                 "illegal argument",
@@ -33,20 +33,20 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
             ).show()
         }
 
-        marAsNoAction.setOnClickListener {
+        markAsNoAction.setOnClickListener {
             jobId?.let { id -> viewModel.updateStatus(id, JobStatus.No) }
             this@JobLongClickDialog.dismiss()
         }
 
-        marAsArchiveAction.setOnClickListener {
+        markAsArchiveAction.setOnClickListener {
             jobId?.let { id -> viewModel.updateStatus(id, JobStatus.Old) }
             this@JobLongClickDialog.dismiss()
         }
-        marAsYesAction.setOnClickListener {
+        markAsYesAction.setOnClickListener {
             jobId?.let { id -> viewModel.updateStatus(id, JobStatus.Yes) }
             this@JobLongClickDialog.dismiss()
         }
-        marAsOnGoingAction.setOnClickListener {
+        markAsOnGoingAction.setOnClickListener {
             jobId?.let { id -> viewModel.updateStatus(id, JobStatus.OnGoing) }
             this@JobLongClickDialog.dismiss()
         }
