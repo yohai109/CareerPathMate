@@ -5,10 +5,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.joblogger.MainActivity
-import com.example.joblogger.R
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobDetailsBinding
 import com.example.joblogger.uimodels.JobUiModel
@@ -26,7 +26,12 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
 
     override fun FragmentJobDetailsBinding.initUI() {
         jobDetailsFAB.setOnClickListener {
-            viewModel.createStep()
+//            viewModel.createStep()
+            val action = JobDetailsFragmentDirections
+                .actionJobDetailsFragmentToCreateJobStepFragment(
+                    viewModel.jobId
+                )
+            it.findNavController().navigate(action)
         }
 
         stepsRV.adapter = JobStepsAdapter()

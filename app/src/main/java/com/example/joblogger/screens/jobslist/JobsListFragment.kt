@@ -28,25 +28,20 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
 
         jobsListRV.adapter = JobListAdapter(
             onClickListener = {
-                val action = JobsListFragmentDirections.actionJobsListFragmentToJobDetailsFragment(
+                val action = JobsListFragmentDirections
+                    .actionJobsListFragmentToJobDetailsFragment(
                     jobId = it.id
                 )
                 root.findNavController().navigate(action)
             },
             onLongClickListener = {
                 val navController = root.findNavController()
-                val action =
-                    JobsListFragmentDirections.actionJobsListFragmentToJobListLongClickDialog(
-                        jobId = it.id
+                val action = JobsListFragmentDirections
+                    .actionJobsListFragmentToJobListLongClickDialog(
+                        jobId = it.id,
+                        jobStatus = it.status
                     )
                 navController.navigate(action)
-//                root.findNavController().navigate(R.id.action_jobsListFragment_to_jobListLongClickDialog, bundleOf("jobId" to it.id))
-//                LongClickDialog().apply {
-//                    arguments = Bundle().apply {
-//                        putString("jobId", it.id)
-//                    }
-//                    show(childFragmentManager, LongClickDialog::class.simpleName)
-//                }
             }
         )
 

@@ -9,7 +9,7 @@
         android:id="@+id/jobsListFragment"
         android:name="com.example.joblogger.screens.jobslist.JobsListFragment"
         android:label="fragment_jobs_list"
-        tools:layout="@layout/fragment_jobs_list" >
+        tools:layout="@layout/fragment_jobs_list">
         <action
             android:id="@+id/action_jobsListFragment_to_jobDetailsFragment"
             app:destination="@id/jobDetailsFragment" />
@@ -28,8 +28,11 @@
         tools:layout="@layout/fragment_job_details">
         <argument
             android:name="jobId"
-            app:argType="string"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_jobDetailsFragment_to_createJobStepFragment"
+            app:destination="@id/createJobStepFragment" />
 
     </fragment>
     <fragment
@@ -38,13 +41,28 @@
         android:label="fragment_create_job"
         tools:layout="@layout/fragment_create_job" />
 
+    <fragment
+        android:id="@+id/createJobStepFragment"
+        android:name="com.example.joblogger.screens.createstep.CreateJobStepFragment"
+        android:label="fragment_create_step"
+        tools:layout="@layout/fragment_create_job_step">
+        <argument
+            android:name="jobId"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+
     <dialog
         android:id="@+id/LongClickDialog"
         android:name="com.example.joblogger.screens.jobslist.longclickdialog.JobLongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument
             android:name="jobId"
-            app:argType="string"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="string" />
+        <argument
+            android:name="jobStatus"
+            android:defaultValue="OnGoing"
+            app:argType="com.example.joblogger.uimodels.JobUiStatus" />
     </dialog>
 </navigation>

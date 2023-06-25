@@ -19,4 +19,9 @@
     <string name="step_location_remote">Remote</string>
     <string name="step_location_onsite">on Site</string>
     <string name="create_job_title">Create new Job</string>
+    <string name="mark_as_no_action_title">Mark As No</string>
+    <string name="mark_as_yes_action_title">Mark As Yes</string>
+    <string name="archive_action_title">Archive</string>
+    <string name="mark_as_on_going_action_title">Mark As On Going</string>
+    <string name="delete_action_title">Delete</string>
 </resources>

@@ -11,34 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_red_x"
-        app:label="Mark As No" />
+        app:label="@string/mark_as_no_action_title" />
 
     <com.example.joblogger.customviews.BottomSheetListItem
         android:id="@+id/marAsYesAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_checkmark_green"
-        app:label="Mark As Yes" />
+        app:label="@string/mark_as_yes_action_title" />
 
     <com.example.joblogger.customviews.BottomSheetListItem
         android:id="@+id/marAsArchiveAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_old"
-        app:label="Archive" />
+        app:label="@string/archive_action_title" />
 
     <com.example.joblogger.customviews.BottomSheetListItem
         android:id="@+id/marAsOnGoingAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_ongoing"
-        app:label="Mark As No" />
+        app:label="@string/mark_as_on_going_action_title" />
 
     <com.example.joblogger.customviews.BottomSheetListItem
         android:id="@+id/deleteAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_garbage"
-        app:label="Delete" />
+        app:label="@string/delete_action_title" />
 
 </LinearLayout>

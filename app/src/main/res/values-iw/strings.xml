@@ -4,4 +4,7 @@
     <string name="job_status_yes">כן</string>
     <string name="job_status_no">לא</string>
     <string name="job_status_old">ישן</string>
+    <string name="mark_as_no_action_title">Mark As No</string>
+    <string name="mark_as_yes_action_title">Mark As Yes</string>
+    <string name="archive_action_title">Archive</string>
 </resources>
