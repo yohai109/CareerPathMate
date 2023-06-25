@@ -7,12 +7,12 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:orientation="vertical"
         android:padding="@dimen/screenPadding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="vertical">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.example.joblogger.customviews.FormInputText
             android:id="@+id/stepDescriptionInput"
@@ -21,14 +21,26 @@
             app:label="Description"
             app:placeholder="Please enter step description" />
 
-       <TextView
-           android:id="@+id/dateTextView"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="@dimen/formItemsSpacing"
-           android:background="@drawable/background_text_box"
-           android:padding="@dimen/exitTextPadding"
-           android:text="please choose date"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:layout_marginTop="@dimen/formItemsSpacing"/>
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/background_text_box"
+            android:padding="@dimen/exitTextPadding"
+            android:text="please choose date" />
+
+        <com.example.joblogger.customviews.FormInputSpinner
+            android:id="@+id/stepStatusSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/formItemsSpacing"
+            app:label="status" />
 
     </LinearLayout>
 

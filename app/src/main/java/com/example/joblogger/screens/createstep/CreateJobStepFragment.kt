@@ -6,7 +6,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.joblogger.baseclasses.BaseFragment
+import com.example.joblogger.customviews.SpinnerGenericAdapter
 import com.example.joblogger.databinding.FragmentCreateJobStepBinding
+import com.example.joblogger.uimodels.StepStatusUi
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 
@@ -45,10 +47,20 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
             }
             datePickerDialog?.show()
         }
-
+        context?.let { context ->
+            stepStatusSpinner.setAdapter(
+                SpinnerGenericAdapter(
+                    context,
+                    StepStatusUi.values()
+                ) {
+                    context.getString(it.title)
+                }
+            )
+        }
         createStepFab.setOnClickListener {
             viewModel.newStep = viewModel.newStep.copy(
-                name = stepDescriptionInput.input.text.toString()
+                name = stepDescriptionInput.input.text.toString(),
+                status = stepStatusSpinner.selectedItem as StepStatusUi
             )
             viewModel.saveStep()
             it.findNavController().navigateUp()

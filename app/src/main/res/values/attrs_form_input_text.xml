@@ -10,4 +10,8 @@
         <attr name="label" />
         <attr name="icon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="FormInputSpinner">
+        <attr name="label" />
+    </declare-styleable>
 </resources>

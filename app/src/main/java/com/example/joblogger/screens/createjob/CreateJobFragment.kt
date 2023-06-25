@@ -5,6 +5,7 @@ import androidx.navigation.findNavController
 import com.example.joblogger.MainActivity
 import com.example.joblogger.R
 import com.example.joblogger.baseclasses.BaseFragment
+import com.example.joblogger.customviews.SpinnerGenericAdapter
 import com.example.joblogger.databinding.FragmentCreateJobBinding
 import com.example.joblogger.uimodels.JobUiStatus
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,10 +31,14 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
         }
 
         context?.let { context ->
-            val adapter = JobUiStatusArrayAdapter(context)
-            adapter.apply {
-                statusPickerSpinner.adapter = this
-            }
+            statusPickerSpinner.setAdapter(
+                SpinnerGenericAdapter(
+                    context,
+                    JobUiStatus.values()
+                ) {
+                    context.getString(it.title)
+                }
+            )
         }
     }
 

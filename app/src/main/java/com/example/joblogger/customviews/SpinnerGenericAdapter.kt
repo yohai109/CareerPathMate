@@ -1,4 +1,4 @@
-package com.example.joblogger.screens.createjob
+package com.example.joblogger.customviews
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,14 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.CheckedTextView
-import com.example.joblogger.uimodels.JobUiStatus
 
-class JobUiStatusArrayAdapter(
+class SpinnerGenericAdapter<T>(
     context: Context,
-) : ArrayAdapter<JobUiStatus>(
+    values: Array<T>,
+    var initText: (T) -> String
+) : ArrayAdapter<T>(
     context,
     android.R.layout.simple_spinner_item,
-    JobUiStatus.values()
+    values
 ) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var text = convertView as? CheckedTextView
@@ -26,7 +27,7 @@ class JobUiStatusArrayAdapter(
                 ) as CheckedTextView
         }
 
-        getItem(position)?.let { text.setText(it.title) }
+        getItem(position)?.let { text.text = initText(it) }
         return text
     }
 
@@ -45,7 +46,7 @@ class JobUiStatusArrayAdapter(
                 ) as CheckedTextView
         }
 
-        getItem(position)?.let { textView.setText(it.title) }
+        getItem(position)?.let { textView.text = initText(it) }
         return textView
     }
 }
