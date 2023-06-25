@@ -23,20 +23,6 @@
             app:label="Job title"
             app:placeholder="please Enter company name" />
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/statusPickerLabel"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="16dp"-->
-        <!--            android:text="Status" />-->
-
-        <!--        <Spinner-->
-        <!--            android:id="@+id/statusPickerSpinner"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:background="@drawable/background_text_box"-->
-        <!--            android:padding="@dimen/exitTextPadding" />-->
-
         <com.example.joblogger.customviews.FormInputSpinner
             android:id="@+id/statusPickerSpinner"
             android:layout_width="match_parent"
@@ -60,6 +46,13 @@
             android:layout_marginTop="@dimen/formItemsSpacing"
             app:label="Company Description"
             app:placeholder="please enter a short description of the company" />
+
+        <com.example.joblogger.customviews.FormInputSpinner
+            android:id="@+id/jobLocationSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/formItemsSpacing"
+            app:label="Location"/>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

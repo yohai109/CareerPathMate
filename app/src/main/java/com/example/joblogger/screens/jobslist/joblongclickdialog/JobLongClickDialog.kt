@@ -1,4 +1,4 @@
-package com.example.joblogger.screens.jobslist.longclickdialog
+package com.example.joblogger.screens.jobslist.joblongclickdialog
 
 import android.os.Bundle
 import android.widget.Toast

@@ -54,7 +54,7 @@
 
     <dialog
         android:id="@+id/LongClickDialog"
-        android:name="com.example.joblogger.screens.jobslist.longclickdialog.JobLongClickDialog"
+        android:name="com.example.joblogger.screens.jobslist.joblongclickdialog.JobLongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument
             android:name="jobId"

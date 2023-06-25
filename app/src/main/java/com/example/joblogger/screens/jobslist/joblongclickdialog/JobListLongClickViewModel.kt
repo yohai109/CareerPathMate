@@ -1,4 +1,4 @@
-package com.example.joblogger.screens.jobslist.longclickdialog
+package com.example.joblogger.screens.jobslist.joblongclickdialog
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

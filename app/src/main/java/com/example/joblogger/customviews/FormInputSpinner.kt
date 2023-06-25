@@ -19,7 +19,8 @@ class FormInputSpinner @JvmOverloads constructor(
     )
     var label: String? = null
 
-    val selectedItem: Any? = binding.formInputSpinner.selectedItem
+    val selectedItem: Any?
+        get() = binding.formInputSpinner.selectedItem
 
     init {
         loadAttrs(context, attrs, defStyle)
