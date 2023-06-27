@@ -10,10 +10,10 @@
         android:id="@+id/searchContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone"
         tools:visibility="visible">
 
         <SearchView
@@ -21,10 +21,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/filterBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/filterBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/exitTextPadding"
+            android:src="@drawable/ic_filter"
+            app:layout_constraintBottom_toBottomOf="@id/searchBar"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchBar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/filterMenu"
+        layout="@layout/filter_menu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchContainer"
+        tools:visibility="visible"
+        android:layout_margin="@dimen/screenPadding"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/jobsListRV"

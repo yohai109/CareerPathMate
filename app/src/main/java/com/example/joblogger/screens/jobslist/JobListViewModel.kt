@@ -1,7 +1,9 @@
 package com.example.joblogger.screens.jobslist
 
 import androidx.lifecycle.ViewModel
+import com.example.joblogger.uimodels.JobLocationUi
 import com.example.joblogger.uimodels.JobUiModel
+import com.example.joblogger.uimodels.JobUiStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,8 +15,11 @@ import kotlin.reflect.KProperty
 
 @HiltViewModel
 class JobListViewModel @Inject constructor(private val repo: JobListRepo) : ViewModel() {
-    val filtersFlow: MutableStateFlow<HashMap<KProperty<*>, (JobUiModel) -> Boolean>> =
+    private val filtersFlow: MutableStateFlow<HashMap<KProperty<*>, (JobUiModel) -> Boolean>> =
         MutableStateFlow(hashMapOf())
+
+    private val statusFilter: ArrayList<JobUiStatus> = arrayListOf()
+    private val locationFilter: ArrayList<JobLocationUi> = arrayListOf()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val jobs = filtersFlow.flatMapLatest { filters ->
@@ -22,6 +27,35 @@ class JobListViewModel @Inject constructor(private val repo: JobListRepo) : View
             it.filter { currJob ->
                 filters.isEmpty() || filters.any {
                     it.value.invoke(currJob)
+                }
+            }
+        }
+    }
+
+    fun toggleStatusFilter(status: JobUiStatus) {
+        if (statusFilter.contains(status)) {
+            statusFilter.remove(status)
+        } else {
+            statusFilter.add(status)
+        }
+        filtersFlow.update {
+            HashMap(it).also { hashMap ->
+                hashMap[JobUiModel::status] = { currJob ->
+                    statusFilter.isEmpty() || statusFilter.contains(currJob.status)
+                }
+            }
+        }
+    }
+    fun toggleLocationFilter(location: JobLocationUi) {
+        if (locationFilter.contains(location)) {
+            locationFilter.remove(location)
+        } else {
+            locationFilter.add(location)
+        }
+        filtersFlow.update {
+            HashMap(it).also { hashMap ->
+                hashMap[JobUiModel::location] = { currJob ->
+                    locationFilter.isEmpty() || locationFilter.contains(currJob.location)
                 }
             }
         }

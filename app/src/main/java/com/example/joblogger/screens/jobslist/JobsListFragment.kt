@@ -20,6 +20,9 @@ import com.example.joblogger.MainActivity
 import com.example.joblogger.R
 import com.example.joblogger.baseclasses.BaseFragment
 import com.example.joblogger.databinding.FragmentJobsListBinding
+import com.example.joblogger.uimodels.JobLocationUi
+import com.example.joblogger.uimodels.JobUiStatus
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -64,19 +67,50 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
 
         jobsListRV.addItemDecoration(dividerItemDecoration)
 
-        (activity as? MenuHost)?.addMenuProvider(menuProvider, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        (activity as? MenuHost)?.addMenuProvider(
+            menuProvider,
+            viewLifecycleOwner,
+            Lifecycle.State.RESUMED
+        )
 
         searchBar.setOnQueryTextListener(object : OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                viewModel.setSearchTerm(query?:"")
+                viewModel.setSearchTerm(query ?: "")
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.setSearchTerm(newText?:"")
+                viewModel.setSearchTerm(newText ?: "")
                 return true
             }
         })
+
+        filterBtn.setOnClickListener {
+            filterMenu.root.isVisible = !filterMenu.root.isVisible
+        }
+
+        JobUiStatus.values().forEach { currStatus ->
+            val chip = Chip(context).apply {
+                setText(currStatus.title)
+                setChipIconResource(currStatus.icon)
+
+                setOnClickListener {
+                    viewModel.toggleStatusFilter(currStatus)
+                }
+            }
+            filterMenu.statusFilterOptions.addView(chip)
+        }
+        JobLocationUi.values().forEach { currLocation ->
+            val chip = Chip(context).apply {
+                setText(currLocation.title)
+                setChipIconResource(currLocation.icon)
+
+                setOnClickListener {
+                    viewModel.toggleLocationFilter(currLocation)
+                }
+            }
+            filterMenu.locationFilterOptions.addView(chip)
+        }
     }
 
     override fun initObservers() {
