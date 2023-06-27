@@ -3,5 +3,10 @@
     <style name="Base.Theme.JobLogger" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/green600</item>
+        <item name="colorPrimaryVariant">@color/green900</item>
+        <item name="colorSecondary">@color/purpleA400</item>
+        <item name="colorSecondaryVariant">@color/purpleA700</item>
+        <item name="colorPrimaryContainer">@color/purpleA400</item>
     </style>
 </resources>
