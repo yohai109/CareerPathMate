@@ -1,11 +1,12 @@
 package com.example.careerpathmate.screens.createstep
 
 import android.app.DatePickerDialog
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.careerpathmate.MainActivity
+import com.example.careerpathmate.R
 import com.example.careerpathmate.baseclasses.BaseFragment
 import com.example.careerpathmate.customviews.SpinnerGenericAdapter
 import com.example.careerpathmate.databinding.FragmentCreateJobStepBinding
@@ -85,6 +86,12 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
     }
 
     override fun initArguments() {
+        val title = if (args.stepId == null) {
+            R.string.create_step_title
+        } else {
+            R.string.edit_step_title
+        }
+        (activity as? MainActivity)?.setToolbarTitle(title)
         viewModel.setJobId(args.jobId)
         viewModel.setStepId(args.stepId) {
             updateUi()

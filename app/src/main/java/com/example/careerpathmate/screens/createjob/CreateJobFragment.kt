@@ -21,7 +21,7 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
     private var jobId: String? = null
 
     override fun FragmentCreateJobBinding.initUI() {
-        (activity as? MainActivity)?.setToolbarTitle(R.string.create_job_title)
+
 
         createJobFAB.setOnClickListener {
             viewModel.jobToCreate = viewModel.jobToCreate.copy(
@@ -58,6 +58,13 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
 
     override fun initArguments() {
         jobId = navArgs.jobId
+        val title = if (jobId == null) {
+            R.string.create_job_title
+        } else {
+            R.string.edit_job_title
+        }
+
+        (activity as? MainActivity)?.setToolbarTitle(title)
         viewModel.setJobId(jobId) {
             binding?.apply {
                 viewModel.jobToCreate.let { job ->

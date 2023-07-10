@@ -51,7 +51,6 @@
     <fragment
         android:id="@+id/createJobStepFragment"
         android:name="com.example.careerpathmate.screens.createstep.CreateJobStepFragment"
-        android:label="fragment_create_step"
         tools:layout="@layout/fragment_create_job_step">
         <argument
             android:name="jobId"
