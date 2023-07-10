@@ -9,11 +9,12 @@ import com.example.careerpathmate.uimodels.JobStepUiModel
 
 
 class JobStepsAdapter(
-  private val clickListener: (JobStepUiModel) -> Unit
-) : ListAdapter<JobStepUiModel,JobStepViewHolder>(JobStepDifUtil) {
+    private val clickListener: (JobStepUiModel) -> Unit,
+    private val longClickListener: (JobStepUiModel) -> Unit
+) : ListAdapter<JobStepUiModel, JobStepViewHolder>(JobStepDifUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobStepViewHolder {
-        val binding = ItemJobStepBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return JobStepViewHolder(binding,clickListener)
+        val binding = ItemJobStepBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return JobStepViewHolder(binding, clickListener, longClickListener)
     }
 
     override fun onBindViewHolder(holder: JobStepViewHolder, position: Int) {

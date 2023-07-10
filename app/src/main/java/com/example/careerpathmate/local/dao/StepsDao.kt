@@ -13,4 +13,7 @@ abstract class StepsDao : BaseDao<JobStepEntity> {
 
     @Query("UPDATE jobsteps SET status=:newStatus WHERE id==:id")
     abstract suspend fun updateStatus(id: String, newStatus: StepStatus)
+
+    @Query("SELECT * FROM JobSteps WHERE id==:id")
+    abstract suspend fun getStepById(id: String): JobStepEntity
 }

@@ -1,16 +1,20 @@
 package com.example.careerpathmate.screens.createstep
 
 import android.app.DatePickerDialog
-import android.os.Bundle
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.careerpathmate.MainActivity
+import com.example.careerpathmate.R
 import com.example.careerpathmate.baseclasses.BaseFragment
 import com.example.careerpathmate.customviews.SpinnerGenericAdapter
 import com.example.careerpathmate.databinding.FragmentCreateJobStepBinding
 import com.example.careerpathmate.uimodels.StepLocationUi
 import com.example.careerpathmate.uimodels.StepStatusUi
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 @AndroidEntryPoint
@@ -23,7 +27,7 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
     override fun FragmentCreateJobStepBinding.initUI() {
 
         dateTextView.setOnClickListener {
-            val c = Calendar.getInstance()
+            val c = viewModel.newStep.date
 
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
@@ -81,7 +85,33 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
     override fun initObservers() {
     }
 
-    override fun Bundle.initArguments() {
+    override fun initArguments() {
+        val title = if (args.stepId == null) {
+            R.string.create_step_title
+        } else {
+            R.string.edit_step_title
+        }
+        (activity as? MainActivity)?.setToolbarTitle(title)
         viewModel.setJobId(args.jobId)
+        viewModel.setStepId(args.stepId) {
+            updateUi()
+        }
+    }
+
+    private fun updateUi() {
+        viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+            binding?.apply {
+                stepDescriptionInput.input.setText(viewModel.newStep.name)
+                stepLocationSpinner.setSelection(viewModel.newStep.location)
+                stepStatusSpinner.setSelection(viewModel.newStep.status)
+                dateTextView.text = viewModel.newStep.date.let {
+                    val year = it.get(Calendar.YEAR)
+                    val month = it.get(Calendar.MONTH)
+                    val day = it.get(Calendar.DAY_OF_MONTH)
+
+                    "$day-${month + 1}-$year"
+                }
+            }
+        }
     }
 }

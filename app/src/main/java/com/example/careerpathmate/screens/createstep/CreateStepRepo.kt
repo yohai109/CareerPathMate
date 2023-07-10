@@ -12,4 +12,8 @@ class CreateStepRepo @Inject constructor(
     suspend fun createStep(step: JobStepEntity) = withContext(Dispatchers.IO) {
         stepsDao.upsert(step)
     }
+
+    suspend fun getStepById(id:String) = withContext(Dispatchers.IO) {
+        stepsDao.getStepById(id)
+    }
 }

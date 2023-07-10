@@ -34,7 +34,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
     private val viewModel: JobListViewModel by viewModels()
 
     override fun FragmentJobsListBinding.initUI() {
-        (activity as? MainActivity)?.setToolbarTitle("Job List")
+//        (activity as? MainActivity)?.setToolbarTitle("Job List")
 
         newJobFab.setOnClickListener {
             findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())

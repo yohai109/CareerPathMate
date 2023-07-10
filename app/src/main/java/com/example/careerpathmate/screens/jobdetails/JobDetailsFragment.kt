@@ -1,11 +1,11 @@
 package com.example.careerpathmate.screens.jobdetails
 
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerpathmate.MainActivity
@@ -23,6 +23,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     FragmentJobDetailsBinding::inflate
 ) {
     private val viewModel: JobDetailsViewModel by viewModels()
+    private val navArgs: JobDetailsFragmentArgs by navArgs()
 
     override fun FragmentJobDetailsBinding.initUI() {
         jobDetailsFAB.setOnClickListener {
@@ -33,20 +34,30 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             it.findNavController().navigate(action)
         }
 
-        stepsRV.adapter = JobStepsAdapter() {
-            val action = JobDetailsFragmentDirections.actionJobDetailsFragmentToStepLongClickDialog(
-                it.id,
-                it.status
-            )
-            root.findNavController().navigate(action)
-        }
+        stepsRV.adapter = JobStepsAdapter(
+            {
+                val action = JobDetailsFragmentDirections
+                    .actionJobDetailsFragmentToStepLongClickDialog(
+                        it.id,
+                        it.status
+                    )
+                root.findNavController().navigate(action)
+            },
+            {
+                val action = JobDetailsFragmentDirections
+                    .actionJobDetailsFragmentToCreateJobStepFragment(
+                        jobId = viewModel.jobId,
+                        stepId = it.id
+                    )
+
+                root.findNavController().navigate(action)
+            }
+        )
         stepsRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
-    override fun Bundle.initArguments() {
-        val arg = JobDetailsFragmentArgs.fromBundle(this)
-        viewModel.jobId = arg.jobId
-
+    override fun initArguments() {
+        viewModel.jobId = navArgs.jobId
     }
 
     override fun initObservers() {
@@ -83,9 +94,5 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             location.setText(jobToShow.location.title)
             locationIcon.setImageResource(jobToShow.location.icon)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }

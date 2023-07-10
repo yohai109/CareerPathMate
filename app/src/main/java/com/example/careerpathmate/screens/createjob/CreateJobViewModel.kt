@@ -22,4 +22,15 @@ class CreateJobViewModel @Inject constructor(private val repo: CreateJobRepo) : 
             repo.save(JobEntity(jobToCreate))
         }
     }
+
+    fun setJobId(jobId: String?, callback: () -> Unit) {
+        jobId?.let {
+            viewModelScope.launch(Dispatchers.IO) {
+                repo.getById(it).collect { collectedJob ->
+                    jobToCreate = JobUiModel(collectedJob)
+                    callback()
+                }
+            }
+        }
+    }
 }

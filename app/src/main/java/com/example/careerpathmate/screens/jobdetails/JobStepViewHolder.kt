@@ -8,13 +8,18 @@ import java.util.Locale
 
 class JobStepViewHolder(
     private val binding: ItemJobStepBinding,
-    private val clickListener: (JobStepUiModel) -> Unit
+    private val clickListener: (JobStepUiModel) -> Unit,
+    private val longClickListener: (JobStepUiModel) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     private lateinit var currStep: JobStepUiModel
 
     init {
         binding.root.setOnClickListener {
             clickListener(currStep)
+        }
+        binding.root.setOnLongClickListener {
+            longClickListener(currStep)
+            true
         }
     }
 
