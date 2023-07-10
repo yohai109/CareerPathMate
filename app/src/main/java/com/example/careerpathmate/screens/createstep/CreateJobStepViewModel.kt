@@ -36,6 +36,15 @@ class CreateJobStepViewModel @Inject constructor(
         )
     }
 
+    fun setStepId(id: String?, callback:()->Unit) {
+        if (id != null) {
+            viewModelScope.launch(Dispatchers.IO) {
+                newStep = JobStepUiModel(createStepRepo.getStepById(id))
+                callback()
+            }
+        }
+    }
+
     fun saveStep() {
         viewModelScope.launch(Dispatchers.IO) {
             createStepRepo.createStep(

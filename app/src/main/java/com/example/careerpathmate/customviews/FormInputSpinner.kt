@@ -57,4 +57,9 @@ class FormInputSpinner @JvmOverloads constructor(
             formInputSpinner.adapter = adapter
         }
     }
+
+    fun setSelection(item:Any?) {
+        val pos = (binding.formInputSpinner.adapter as? SpinnerGenericAdapter<Any?> )?.getPosition(item)
+        pos?.let { binding.formInputSpinner.setSelection(it) }
+    }
 }

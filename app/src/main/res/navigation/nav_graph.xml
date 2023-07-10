@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/jobsListFragment"
         android:name="com.example.careerpathmate.screens.jobslist.JobsListFragment"
-        android:label="fragment_jobs_list"
+        android:label="@string/job_list_title"
         tools:layout="@layout/fragment_jobs_list">
         <action
             android:id="@+id/action_jobsListFragment_to_jobDetailsFragment"
@@ -24,7 +24,6 @@
     <fragment
         android:id="@+id/jobDetailsFragment"
         android:name="com.example.careerpathmate.screens.jobdetails.JobDetailsFragment"
-        android:label="JobDetailsFragment"
         tools:layout="@layout/fragment_job_details">
         <argument
             android:name="jobId"
@@ -41,8 +40,13 @@
     <fragment
         android:id="@+id/createJobFragment"
         android:name="com.example.careerpathmate.screens.createjob.CreateJobFragment"
-        android:label="fragment_create_job"
-        tools:layout="@layout/fragment_create_job" />
+        tools:layout="@layout/fragment_create_job">
+        <argument
+            android:name="jobId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/createJobStepFragment"
@@ -53,6 +57,12 @@
             android:name="jobId"
             android:defaultValue=""
             app:argType="string" />
+
+        <argument
+            android:name="stepId"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
     </fragment>
 
     <dialog

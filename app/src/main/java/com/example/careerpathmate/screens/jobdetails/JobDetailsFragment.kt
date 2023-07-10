@@ -33,13 +33,25 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             it.findNavController().navigate(action)
         }
 
-        stepsRV.adapter = JobStepsAdapter() {
-            val action = JobDetailsFragmentDirections.actionJobDetailsFragmentToStepLongClickDialog(
-                it.id,
-                it.status
-            )
-            root.findNavController().navigate(action)
-        }
+        stepsRV.adapter = JobStepsAdapter(
+            {
+                val action = JobDetailsFragmentDirections
+                    .actionJobDetailsFragmentToStepLongClickDialog(
+                        it.id,
+                        it.status
+                    )
+                root.findNavController().navigate(action)
+            },
+            {
+                val action = JobDetailsFragmentDirections
+                    .actionJobDetailsFragmentToCreateJobStepFragment(
+                        jobId = viewModel.jobId,
+                        stepId = it.id
+                    )
+
+                root.findNavController().navigate(action)
+            }
+        )
         stepsRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
@@ -83,9 +95,5 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             location.setText(jobToShow.location.title)
             locationIcon.setImageResource(jobToShow.location.icon)
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }

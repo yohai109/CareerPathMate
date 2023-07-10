@@ -29,4 +29,5 @@
     <string name="company_description_label">תיאור החברה</string>
     <string name="company_description_placeholder">אנא הקלד תיאור של החברה</string>
     <string name="location_label">מאיפה העבודה</string>
+    <string name="job_list_title">Job List</string>
 </resources>
