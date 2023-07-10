@@ -27,7 +27,7 @@ abstract class BaseFragment<T : ViewBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.initArguments()
+        initArguments()
         binding?.initUI()
         initObservers()
     }
@@ -36,7 +36,7 @@ abstract class BaseFragment<T : ViewBinding>(
 
     open fun initObservers() {}
 
-    open fun Bundle.initArguments() {}
+    open fun initArguments() {}
 
     override fun onDestroyView() {
         super.onDestroyView()

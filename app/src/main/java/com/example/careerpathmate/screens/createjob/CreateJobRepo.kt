@@ -8,4 +8,7 @@ import javax.inject.Inject
 
 class CreateJobRepo @Inject constructor(private val dao: JobsDao) {
     suspend fun save(newJob: JobEntity) = withContext(Dispatchers.IO) { dao.upsert(newJob) }
+
+    fun getById(id:String) = dao.getById(id)
+
 }

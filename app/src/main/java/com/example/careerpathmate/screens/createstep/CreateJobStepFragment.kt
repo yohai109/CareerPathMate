@@ -84,7 +84,7 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
     override fun initObservers() {
     }
 
-    override fun Bundle.initArguments() {
+    override fun initArguments() {
         viewModel.setJobId(args.jobId)
         viewModel.setStepId(args.stepId) {
             updateUi()

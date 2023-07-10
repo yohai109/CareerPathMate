@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.careerpathmate.baseclasses.BaseBottomSheetDialogFragment
 import com.example.careerpathmate.databinding.DialogJobListLongClickBinding
@@ -31,6 +32,17 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
                 "illegal argument",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+
+        editAction.setOnClickListener {
+            jobId?.let { jobId ->
+                val action = JobLongClickDialogDirections
+                    .actionJobLongClickDialogToCreateJobFragment(
+                        jobId
+                    )
+
+                this@JobLongClickDialog.findNavController().navigate(action)
+            }
         }
 
         markAsNoAction.setOnClickListener {

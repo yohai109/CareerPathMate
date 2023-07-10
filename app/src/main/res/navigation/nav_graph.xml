@@ -77,6 +77,10 @@
             android:name="jobStatus"
             android:defaultValue="OnGoing"
             app:argType="com.example.careerpathmate.uimodels.JobUiStatus" />
+        <action
+            android:id="@+id/action_JobLongClickDialog_to_createJobFragment"
+            app:destination="@id/createJobFragment" />
+
     </dialog>
 
     <dialog

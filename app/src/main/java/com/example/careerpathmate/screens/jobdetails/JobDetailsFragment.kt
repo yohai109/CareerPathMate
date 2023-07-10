@@ -1,11 +1,11 @@
 package com.example.careerpathmate.screens.jobdetails
 
-import android.os.Bundle
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerpathmate.MainActivity
@@ -23,6 +23,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     FragmentJobDetailsBinding::inflate
 ) {
     private val viewModel: JobDetailsViewModel by viewModels()
+    private val navArgs: JobDetailsFragmentArgs by navArgs()
 
     override fun FragmentJobDetailsBinding.initUI() {
         jobDetailsFAB.setOnClickListener {
@@ -55,10 +56,8 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         stepsRV.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 
-    override fun Bundle.initArguments() {
-        val arg = JobDetailsFragmentArgs.fromBundle(this)
-        viewModel.jobId = arg.jobId
-
+    override fun initArguments() {
+        viewModel.jobId = navArgs.jobId
     }
 
     override fun initObservers() {

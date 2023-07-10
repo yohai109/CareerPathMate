@@ -7,6 +7,13 @@
     android:padding="@dimen/screenPadding">
 
     <com.example.careerpathmate.customviews.BottomSheetListItem
+        android:id="@+id/editAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_edit"
+        app:label="Edit" />
+
+    <com.example.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsNoAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
