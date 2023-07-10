@@ -21,6 +21,9 @@ class JobListViewModel @Inject constructor(private val repo: JobListRepo) : View
     private val statusFilter: ArrayList<JobUiStatus> = arrayListOf()
     private val locationFilter: ArrayList<JobLocationUi> = arrayListOf()
 
+    fun isFiltered(status: JobUiStatus) = status in statusFilter
+    fun isFiltered(location: JobLocationUi) = location in locationFilter
+
     @OptIn(ExperimentalCoroutinesApi::class)
     val jobs = filtersFlow.flatMapLatest { filters ->
         repo.allJobs.map {
@@ -33,7 +36,7 @@ class JobListViewModel @Inject constructor(private val repo: JobListRepo) : View
     }
 
     fun toggleStatusFilter(status: JobUiStatus) {
-        if (statusFilter.contains(status)) {
+        if (isFiltered(status)) {
             statusFilter.remove(status)
         } else {
             statusFilter.add(status)
@@ -46,8 +49,9 @@ class JobListViewModel @Inject constructor(private val repo: JobListRepo) : View
             }
         }
     }
+
     fun toggleLocationFilter(location: JobLocationUi) {
-        if (locationFilter.contains(location)) {
+        if (isFiltered(location)) {
             locationFilter.remove(location)
         } else {
             locationFilter.add(location)

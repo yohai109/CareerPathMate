@@ -16,7 +16,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.careerpathmate.MainActivity
 import com.example.careerpathmate.R
 import com.example.careerpathmate.baseclasses.BaseFragment
 import com.example.careerpathmate.databinding.FragmentJobsListBinding
@@ -93,6 +92,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             val chip = Chip(context).apply {
                 setText(currStatus.title)
                 setChipIconResource(currStatus.icon)
+                isSelected = viewModel.isFiltered(currStatus)
 
                 setOnClickListener {
                     it.isSelected = !it.isSelected
@@ -106,6 +106,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             val chip = Chip(context).apply {
                 setText(currLocation.title)
                 setChipIconResource(currLocation.icon)
+                isSelected = viewModel.isFiltered(currLocation)
 
                 setOnClickListener {
                     it.isSelected = !it.isSelected

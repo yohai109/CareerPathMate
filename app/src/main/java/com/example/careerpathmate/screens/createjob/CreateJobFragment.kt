@@ -1,6 +1,7 @@
 package com.example.careerpathmate.screens.createjob
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.careerpathmate.MainActivity
@@ -11,6 +12,8 @@ import com.example.careerpathmate.databinding.FragmentCreateJobBinding
 import com.example.careerpathmate.uimodels.JobLocationUi
 import com.example.careerpathmate.uimodels.JobUiStatus
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
@@ -66,15 +69,18 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
 
         (activity as? MainActivity)?.setToolbarTitle(title)
         viewModel.setJobId(jobId) {
-            binding?.apply {
-                viewModel.jobToCreate.let { job ->
-                    companyNameInputText.input.setText(job.companyName)
-                    contactInputText.input.setText(job.contactName)
-                    descriptionInputText.input.setText(job.description)
-                    jobLocationSpinner.setSelection(job.location)
-                    statusPickerSpinner.setSelection(job.status)
+            viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
+                binding?.apply {
+                    viewModel.jobToCreate.let { job ->
+                        companyNameInputText.input.setText(job.companyName)
+                        contactInputText.input.setText(job.contactName)
+                        descriptionInputText.input.setText(job.description)
+                        jobLocationSpinner.setSelection(job.location)
+                        statusPickerSpinner.setSelection(job.status)
+                    }
                 }
             }
+
         }
     }
 }
