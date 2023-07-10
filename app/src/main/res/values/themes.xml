@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.JobLogger" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.careerpathmate" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/green600</item>
         <item name="colorPrimaryVariant">@color/green900</item>
@@ -17,5 +17,5 @@
         <item name="colorOnError">@color/white</item>
     </style>
 
-    <style name="Theme.JobLogger" parent="Base.Theme.JobLogger" />
+    <style name="Theme.careerpathmate" parent="Base.Theme.careerpathmate" />
 </resources>

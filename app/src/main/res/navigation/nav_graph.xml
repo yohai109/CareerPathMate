@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/jobsListFragment"
-        android:name="com.example.joblogger.screens.jobslist.JobsListFragment"
+        android:name="com.example.careerpathmate.screens.jobslist.JobsListFragment"
         android:label="fragment_jobs_list"
         tools:layout="@layout/fragment_jobs_list">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/jobDetailsFragment"
-        android:name="com.example.joblogger.screens.jobdetails.JobDetailsFragment"
+        android:name="com.example.careerpathmate.screens.jobdetails.JobDetailsFragment"
         android:label="JobDetailsFragment"
         tools:layout="@layout/fragment_job_details">
         <argument
@@ -40,13 +40,13 @@
     </fragment>
     <fragment
         android:id="@+id/createJobFragment"
-        android:name="com.example.joblogger.screens.createjob.CreateJobFragment"
+        android:name="com.example.careerpathmate.screens.createjob.CreateJobFragment"
         android:label="fragment_create_job"
         tools:layout="@layout/fragment_create_job" />
 
     <fragment
         android:id="@+id/createJobStepFragment"
-        android:name="com.example.joblogger.screens.createstep.CreateJobStepFragment"
+        android:name="com.example.careerpathmate.screens.createstep.CreateJobStepFragment"
         android:label="fragment_create_step"
         tools:layout="@layout/fragment_create_job_step">
         <argument
@@ -57,7 +57,7 @@
 
     <dialog
         android:id="@+id/JobLongClickDialog"
-        android:name="com.example.joblogger.screens.jobslist.joblongclickdialog.JobLongClickDialog"
+        android:name="com.example.careerpathmate.screens.jobslist.joblongclickdialog.JobLongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument
             android:name="jobId"
@@ -66,12 +66,12 @@
         <argument
             android:name="jobStatus"
             android:defaultValue="OnGoing"
-            app:argType="com.example.joblogger.uimodels.JobUiStatus" />
+            app:argType="com.example.careerpathmate.uimodels.JobUiStatus" />
     </dialog>
 
     <dialog
         android:id="@+id/StepLongClickDialog"
-        android:name="com.example.joblogger.screens.jobdetails.steplongclickdialog.StepLongClickDialog"
+        android:name="com.example.careerpathmate.screens.jobdetails.steplongclickdialog.StepLongClickDialog"
         tools:layout="@layout/dialog_step_long_click">
         <argument
             android:name="stepId"
@@ -80,6 +80,6 @@
         <argument
             android:name="stepStatus"
             android:defaultValue="Current"
-            app:argType="com.example.joblogger.uimodels.StepStatusUi" />
+            app:argType="com.example.careerpathmate.uimodels.StepStatusUi" />
     </dialog>
 </navigation>

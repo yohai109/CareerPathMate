@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.joblogger.customviews.FormInputText
+        <com.example.careerpathmate.customviews.FormInputText
             android:id="@+id/stepDescriptionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,14 +35,14 @@
             android:padding="@dimen/exitTextPadding"
             android:text="please choose date" />
 
-        <com.example.joblogger.customviews.FormInputSpinner
+        <com.example.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepStatusSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
             app:label="status" />
 
-        <com.example.joblogger.customviews.FormInputSpinner
+        <com.example.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepLocationSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
