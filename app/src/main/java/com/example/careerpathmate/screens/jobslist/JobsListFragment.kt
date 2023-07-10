@@ -95,17 +95,20 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
                 setChipIconResource(currStatus.icon)
 
                 setOnClickListener {
+                    it.isSelected = !it.isSelected
                     viewModel.toggleStatusFilter(currStatus)
                 }
             }
             filterMenu.statusFilterOptions.addView(chip)
         }
+
         JobLocationUi.values().forEach { currLocation ->
             val chip = Chip(context).apply {
                 setText(currLocation.title)
                 setChipIconResource(currLocation.icon)
 
                 setOnClickListener {
+                    it.isSelected = !it.isSelected
                     viewModel.toggleLocationFilter(currLocation)
                 }
             }

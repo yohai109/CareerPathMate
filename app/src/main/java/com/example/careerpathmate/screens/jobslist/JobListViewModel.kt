@@ -25,7 +25,7 @@ class JobListViewModel @Inject constructor(private val repo: JobListRepo) : View
     val jobs = filtersFlow.flatMapLatest { filters ->
         repo.allJobs.map {
             it.filter { currJob ->
-                filters.isEmpty() || filters.any {
+                filters.isEmpty() || filters.all {
                     it.value.invoke(currJob)
                 }
             }
