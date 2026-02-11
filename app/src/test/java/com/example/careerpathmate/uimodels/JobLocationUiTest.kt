@@ -1,7 +1,6 @@
 package com.example.careerpathmate.uimodels
 
 import com.example.careerpathmate.local.model.JobLocation
-import com.example.careerpathmate.local.model.JobStatus
 import org.junit.Assert.*
 import org.junit.Test
 
