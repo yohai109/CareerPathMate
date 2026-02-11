@@ -1,2 +1,84 @@
 # Career Path Mate
-this is a personal app that allows the user to track his job applications while he is searching for work
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A personal Android application designed to help job seekers track and manage their job applications throughout the job search process.
+
+## Overview
+
+Career Path Mate is a comprehensive job application tracker that allows users to efficiently organize and monitor their job search activities. Whether you're applying to multiple positions or tracking the progress of individual applications, this app provides an intuitive interface to manage your career journey.
+
+## Features
+
+- 📝 **Job Application Tracking**: Keep track of all your job applications in one place
+- 📊 **Application Status Management**: Monitor the progress of each application
+- 🔄 **Multi-step Process Tracking**: Track different stages of the application process (applied, interview, offer, etc.)
+- 💾 **Local Data Storage**: All your data is stored securely on your device using Room database
+- 🎨 **Modern UI**: Built with Material Design components for a clean and intuitive user experience
+
+## Technology Stack
+
+- **Language**: Kotlin
+- **UI Framework**: Android Jetpack (Navigation, ViewBinding)
+- **Database**: Room (SQLite)
+- **Dependency Injection**: Dagger Hilt
+- **Architecture**: MVVM (Model-View-ViewModel)
+- **Minimum SDK**: Android 8.0 (API 26)
+- **Target SDK**: Android 13 (API 33)
+
+## Requirements
+
+- Android Studio (Arctic Fox or newer)
+- Android SDK 33
+- JDK 17
+- Gradle 8.0+
+
+## Setup Instructions
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yohai109/CareerPathMate.git
+   cd CareerPathMate
+   ```
+
+2. **Open in Android Studio**
+   - Launch Android Studio
+   - Select "Open an Existing Project"
+   - Navigate to the cloned repository folder
+
+3. **Build the project**
+   - Let Android Studio download and sync all dependencies
+   - Build the project: `Build > Make Project` or press `Ctrl+F9` (Windows/Linux) / `Cmd+F9` (Mac)
+
+4. **Run the app**
+   - Connect an Android device or start an emulator
+   - Click the "Run" button or press `Shift+F10` (Windows/Linux) / `Ctrl+R` (Mac)
+
+## Project Structure
+
+```
+app/src/main/java/com/example/careerpathmate/
+├── local/              # Database layer (Room)
+│   ├── dao/           # Data Access Objects
+│   ├── model/         # Entity classes
+│   └── typeconverters/ # Type converters for Room
+├── screens/           # UI screens and ViewModels
+├── customviews/       # Custom UI components
+└── JobLoggerApplication.kt  # Application class
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Yohai Knaani
+
+---
+
+Made with ❤️ to help job seekers stay organized during their career journey
