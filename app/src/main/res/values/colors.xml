@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Light Theme - Primary colors -->
+    <color name="light_primary">#1B5E20</color>
+    <color name="light_primary_variant">#388E3C</color>
+    <color name="light_on_primary">#FFFFFF</color>
+    
+    <!-- Light Theme - Secondary colors -->
+    <color name="light_secondary">#6200EA</color>
+    <color name="light_secondary_variant">#7C4DFF</color>
+    <color name="light_on_secondary">#FFFFFF</color>
+    
+    <!-- Light Theme - Background and Surface -->
+    <color name="light_background">#F5F5F5</color>
+    <color name="light_surface">#FFFFFF</color>
+    <color name="light_on_background">#1C1B1F</color>
+    <color name="light_on_surface">#1C1B1F</color>
+    
+    <!-- Light Theme - Error -->
+    <color name="light_error">#D32F2F</color>
+    <color name="light_on_error">#FFFFFF</color>
+    
+    <!-- Dark Theme - Primary colors -->
+    <color name="dark_primary">#66BB6A</color>
+    <color name="dark_primary_variant">#81C784</color>
+    <color name="dark_on_primary">#003300</color>
+    
+    <!-- Dark Theme - Secondary colors -->
+    <color name="dark_secondary">#9575CD</color>
+    <color name="dark_secondary_variant">#B39DDB</color>
+    <color name="dark_on_secondary">#1A0033</color>
+    
+    <!-- Dark Theme - Background and Surface -->
+    <color name="dark_background">#121212</color>
+    <color name="dark_surface">#1E1E1E</color>
+    <color name="dark_on_background">#E1E1E1</color>
+    <color name="dark_on_surface">#E1E1E1</color>
+    
+    <!-- Dark Theme - Error -->
+    <color name="dark_error">#EF5350</color>
+    <color name="dark_on_error">#FFFFFF</color>
+
+    <!-- Status colors - Light theme -->
+    <color name="light_status_ongoing">#2196F3</color>
+    <color name="light_status_old">#FF9800</color>
+    <color name="light_status_accepted">#4CAF50</color>
+    <color name="light_status_rejected">#F44336</color>
+    
+    <!-- Status colors - Dark theme -->
+    <color name="dark_status_ongoing">#42A5F5</color>
+    <color name="dark_status_old">#FFA726</color>
+    <color name="dark_status_accepted">#66BB6A</color>
+    <color name="dark_status_rejected">#EF5350</color>
+
+    <!-- Legacy colors for backward compatibility -->
     <color name="green900">#1b5e1f</color>
     <color name="green600">#43a046</color>
     <color name="purpleA400">#D500F9</color>
     <color name="purpleA700">#AA00FF</color>
-
     <color name="amber600">#FFB300</color>
     <color name="red700">#D32F2F</color>
     <color name="lightBlue500">#03A9F4</color>
