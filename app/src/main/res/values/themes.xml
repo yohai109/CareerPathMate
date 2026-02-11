@@ -1,20 +1,37 @@
 <resources>
-    <!-- Base application theme. -->
+    <!-- Base application theme - Light Theme -->
     <style name="Base.Theme.careerpathmate" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <item name="colorPrimary">@color/green600</item>
-        <item name="colorPrimaryVariant">@color/green900</item>
-        <item name="colorSecondary">@color/purpleA400</item>
-        <item name="colorSecondaryVariant">@color/purpleA700</item>
-        <item name="colorPrimaryContainer">@color/purpleA400</item>
-        <item name="android:colorBackground">@color/white</item>
-        <item name="colorError">#B00020</item>
-        <item name="colorSurface">@color/white</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <item name="colorOnBackground">@color/black</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <item name="colorOnSurface">@color/black</item>
-        <item name="colorOnError">@color/white</item>
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryVariant">@color/light_primary_variant</item>
+        <item name="colorOnPrimary">@color/light_on_primary</item>
+        
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/light_secondary</item>
+        <item name="colorSecondaryVariant">@color/light_secondary_variant</item>
+        <item name="colorOnSecondary">@color/light_on_secondary</item>
+        
+        <!-- Background and Surface -->
+        <item name="android:colorBackground">@color/light_background</item>
+        <item name="colorSurface">@color/light_surface</item>
+        <item name="colorOnBackground">@color/light_on_background</item>
+        <item name="colorOnSurface">@color/light_on_surface</item>
+        
+        <!-- Error colors -->
+        <item name="colorError">@color/light_error</item>
+        <item name="colorOnError">@color/light_on_error</item>
+        
+        <!-- Additional Material 3 colors -->
+        <item name="colorPrimaryContainer">@color/light_primary_variant</item>
+        <item name="colorOnPrimaryContainer">@color/light_on_primary</item>
+        <item name="colorSecondaryContainer">@color/light_secondary_variant</item>
+        <item name="colorOnSecondaryContainer">@color/light_on_secondary</item>
+        
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/light_primary</item>
+        <item name="android:navigationBarColor">@color/light_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 
     <style name="Theme.careerpathmate" parent="Base.Theme.careerpathmate" />
