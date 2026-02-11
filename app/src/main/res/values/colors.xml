@@ -57,8 +57,8 @@
     <color name="dark_status_rejected">#EF5350</color>
 
     <!-- Legacy colors for backward compatibility -->
-    <color name="green900">#1b5e1f</color>
-    <color name="green600">#43a046</color>
+    <color name="green900">#1B5E1F</color>
+    <color name="green600">#43A046</color>
     <color name="purpleA400">#D500F9</color>
     <color name="purpleA700">#AA00FF</color>
     <color name="amber600">#FFB300</color>
