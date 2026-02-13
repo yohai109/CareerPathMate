@@ -29,8 +29,9 @@
     <string name="company_description_label">תיאור החברה</string>
     <string name="company_description_placeholder">אנא הקלד תיאור של החברה</string>
     <string name="location_label">מאיפה העבודה</string>
-    <string name="job_list_title">Job List</string>
-    <string name="edit_job_title">Edit Job</string>
-    <string name="create_step_title">Crate Step</string>
-    <string name="edit_step_title">Edit step</string>
+    <string name="job_list_title">רשימת משרות</string>
+    <string name="edit_job_title">ערוך משרה</string>
+    <string name="create_step_title">צור שלב</string>
+    <string name="edit_step_title">ערוך שלב</string>
+    <string name="error_illegal_argument">ארגומנט לא חוקי</string>
 </resources>
