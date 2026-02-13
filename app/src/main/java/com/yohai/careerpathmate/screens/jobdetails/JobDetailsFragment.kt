@@ -29,9 +29,10 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     private val navArgs: JobDetailsFragmentArgs by navArgs()
 
     override fun FragmentJobDetailsBinding.initUI() {
+        val originalBottomPadding = stepsRV.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            stepsRV.updatePadding(bottom = stepsRV.paddingBottom + insets.bottom)
+            stepsRV.updatePadding(bottom = originalBottomPadding + insets.bottom)
             windowInsets
         }
         

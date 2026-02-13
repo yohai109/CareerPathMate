@@ -36,9 +36,10 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
     private val viewModel: JobListViewModel by viewModels()
 
     override fun FragmentJobsListBinding.initUI() {
+        val originalBottomPadding = jobsListRV.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            jobsListRV.updatePadding(bottom = jobsListRV.paddingBottom + insets.bottom)
+            jobsListRV.updatePadding(bottom = originalBottomPadding + insets.bottom)
             windowInsets
         }
         

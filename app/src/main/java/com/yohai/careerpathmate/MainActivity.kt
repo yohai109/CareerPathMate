@@ -21,9 +21,10 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
         
+        val originalTopPadding = binding.root.paddingTop
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.updatePadding(top = view.paddingTop + insets.top)
+            view.updatePadding(top = originalTopPadding + insets.top)
             windowInsets
         }
         
