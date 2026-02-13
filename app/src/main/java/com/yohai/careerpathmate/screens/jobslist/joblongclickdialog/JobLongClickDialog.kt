@@ -27,11 +27,13 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
             JobUiStatus.Old -> markAsArchiveAction.isVisible = false
             JobUiStatus.Yes -> markAsYesAction.isVisible = false
             JobUiStatus.No -> markAsNoAction.isVisible = false
-            null -> Toast.makeText(
-                context?.applicationContext,
-                com.yohai.careerpathmate.R.string.error_illegal_argument,
-                Toast.LENGTH_SHORT
-            ).show()
+            null -> context?.applicationContext?.let { ctx ->
+                Toast.makeText(
+                    ctx,
+                    ctx.getString(com.yohai.careerpathmate.R.string.error_illegal_argument),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
         editAction.setOnClickListener {

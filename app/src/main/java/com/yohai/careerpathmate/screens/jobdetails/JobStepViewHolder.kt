@@ -27,7 +27,8 @@ class JobStepViewHolder(
         binding.apply {
             currStep = jobStepUiModel
             stepName.text = jobStepUiModel.name
-            date.text = DATE_FORMATTER.format(jobStepUiModel.date.time)
+            val dateFormatter = SimpleDateFormat("EEE, MMM d, ''yy", Locale.getDefault())
+            date.text = dateFormatter.format(jobStepUiModel.date.time)
 
             indicator.setBackgroundResource(jobStepUiModel.status.indicatorColor)
             status.setText(jobStepUiModel.status.title)
@@ -36,9 +37,5 @@ class JobStepViewHolder(
             location.setText(jobStepUiModel.location.title)
             locationIcon.setImageResource(jobStepUiModel.location.icon)
         }
-    }
-
-    companion object {
-        private val DATE_FORMATTER = SimpleDateFormat("EEE, MMM d, ''yy", Locale.getDefault())
     }
 }
