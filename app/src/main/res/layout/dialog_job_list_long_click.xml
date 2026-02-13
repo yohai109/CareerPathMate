@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_edit"
-        app:label="Edit" />
+        app:label="@string/edit_action_title" />
 
     <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsNoAction"

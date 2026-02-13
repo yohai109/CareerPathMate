@@ -50,7 +50,7 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
                             set(year, monthOfYear, dayOfMonth)
                         }
                         viewModel.setStepDate(cal)
-                        val dat = (dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
+                        val dat = getString(R.string.date_format, dayOfMonth, monthOfYear + 1, year)
                         dateTextView.text = dat
                     },
 
@@ -118,7 +118,7 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
                     val month = it.get(Calendar.MONTH)
                     val day = it.get(Calendar.DAY_OF_MONTH)
 
-                    "$day-${month + 1}-$year"
+                    getString(R.string.date_format, day, month + 1, year)
                 }
             }
         }

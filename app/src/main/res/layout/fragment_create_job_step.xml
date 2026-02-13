@@ -18,14 +18,14 @@
             android:id="@+id/stepDescriptionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:label="Description"
-            app:placeholder="Please enter step description" />
+            app:label="@string/step_description_label"
+            app:placeholder="@string/step_description_placeholder" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
-            android:text="Date" />
+            android:text="@string/date_label" />
 
         <TextView
             android:id="@+id/dateTextView"
@@ -33,21 +33,21 @@
             android:layout_height="wrap_content"
             android:background="@drawable/background_text_box"
             android:padding="@dimen/exitTextPadding"
-            android:text="please choose date" />
+            android:text="@string/date_placeholder" />
 
         <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepStatusSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
-            app:label="status" />
+            app:label="@string/step_status_label" />
 
         <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepLocationSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
-            app:label="Location" />
+            app:label="@string/step_location_label" />
 
     </LinearLayout>
 

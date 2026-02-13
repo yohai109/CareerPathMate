@@ -39,4 +39,15 @@
     <string name="edit_job_title">Edit Job</string>
     <string name="create_step_title">Crate Step</string>
     <string name="edit_step_title">Edit step</string>
+    <string name="edit_action_title">Edit</string>
+    <string name="error_illegal_argument">Illegal argument</string>
+    <string name="date_label">Date</string>
+    <string name="date_placeholder">please choose date</string>
+    <string name="step_description_label">Description</string>
+    <string name="step_description_placeholder">Please enter step description</string>
+    <string name="step_status_label">status</string>
+    <string name="step_location_label">Location</string>
+    <string name="filter_status_label">Status</string>
+    <string name="filter_location_label">Location</string>
+    <string name="date_format" translatable="false">%1$d-%2$d-%3$d</string>
 </resources>
