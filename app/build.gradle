@@ -9,11 +9,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.careerpathmate'
+    namespace 'com.yohai.careerpathmate'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.example.careerpathmate"
+        applicationId "com.yohai.careerpathmate"
         minSdk 26
         targetSdk 36
         versionCode 1

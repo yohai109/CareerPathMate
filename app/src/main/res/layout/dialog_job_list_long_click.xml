@@ -6,42 +6,42 @@
     android:orientation="vertical"
     android:padding="@dimen/screenPadding">
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/editAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_edit"
         app:label="Edit" />
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsNoAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_red_x"
         app:label="@string/mark_as_no_action_title" />
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsYesAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_checkmark_green"
         app:label="@string/mark_as_yes_action_title" />
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsArchiveAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_old"
         app:label="@string/archive_action_title" />
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/markAsOnGoingAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_ongoing"
         app:label="@string/mark_as_on_going_action_title" />
 
-    <com.example.careerpathmate.customviews.BottomSheetListItem
+    <com.yohai.careerpathmate.customviews.BottomSheetListItem
         android:id="@+id/deleteAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

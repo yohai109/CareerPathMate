@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/jobsListFragment"
-        android:name="com.example.careerpathmate.screens.jobslist.JobsListFragment"
+        android:name="com.yohai.careerpathmate.screens.jobslist.JobsListFragment"
         android:label="@string/job_list_title"
         tools:layout="@layout/fragment_jobs_list">
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/jobDetailsFragment"
-        android:name="com.example.careerpathmate.screens.jobdetails.JobDetailsFragment"
+        android:name="com.yohai.careerpathmate.screens.jobdetails.JobDetailsFragment"
         tools:layout="@layout/fragment_job_details">
         <argument
             android:name="jobId"
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/createJobFragment"
-        android:name="com.example.careerpathmate.screens.createjob.CreateJobFragment"
+        android:name="com.yohai.careerpathmate.screens.createjob.CreateJobFragment"
         tools:layout="@layout/fragment_create_job">
         <argument
             android:name="jobId"
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/createJobStepFragment"
-        android:name="com.example.careerpathmate.screens.createstep.CreateJobStepFragment"
+        android:name="com.yohai.careerpathmate.screens.createstep.CreateJobStepFragment"
         tools:layout="@layout/fragment_create_job_step">
         <argument
             android:name="jobId"
@@ -66,7 +66,7 @@
 
     <dialog
         android:id="@+id/JobLongClickDialog"
-        android:name="com.example.careerpathmate.screens.jobslist.joblongclickdialog.JobLongClickDialog"
+        android:name="com.yohai.careerpathmate.screens.jobslist.joblongclickdialog.JobLongClickDialog"
         tools:layout="@layout/dialog_job_list_long_click">
         <argument
             android:name="jobId"
@@ -75,7 +75,7 @@
         <argument
             android:name="jobStatus"
             android:defaultValue="OnGoing"
-            app:argType="com.example.careerpathmate.uimodels.JobUiStatus" />
+            app:argType="com.yohai.careerpathmate.uimodels.JobUiStatus" />
         <action
             android:id="@+id/action_JobLongClickDialog_to_createJobFragment"
             app:destination="@id/createJobFragment" />
@@ -84,7 +84,7 @@
 
     <dialog
         android:id="@+id/StepLongClickDialog"
-        android:name="com.example.careerpathmate.screens.jobdetails.steplongclickdialog.StepLongClickDialog"
+        android:name="com.yohai.careerpathmate.screens.jobdetails.steplongclickdialog.StepLongClickDialog"
         tools:layout="@layout/dialog_step_long_click">
         <argument
             android:name="stepId"
@@ -93,6 +93,6 @@
         <argument
             android:name="stepStatus"
             android:defaultValue="Current"
-            app:argType="com.example.careerpathmate.uimodels.StepStatusUi" />
+            app:argType="com.yohai.careerpathmate.uimodels.StepStatusUi" />
     </dialog>
 </navigation>

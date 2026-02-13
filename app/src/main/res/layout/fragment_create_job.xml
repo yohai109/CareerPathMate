@@ -16,21 +16,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.careerpathmate.customviews.FormInputText
+        <com.yohai.careerpathmate.customviews.FormInputText
             android:id="@+id/companyNameInputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:label="@string/company_name_label"
             app:placeholder="@string/company_name_placeholder" />
 
-        <com.example.careerpathmate.customviews.FormInputSpinner
+        <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/statusPickerSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
             app:label="@string/status_label" />
 
-        <com.example.careerpathmate.customviews.FormInputText
+        <com.yohai.careerpathmate.customviews.FormInputText
             android:id="@+id/contactInputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             app:label="@string/contact_name_label"
             app:placeholder="@string/contact_name_placeholder" />
 
-        <com.example.careerpathmate.customviews.FormInputText
+        <com.yohai.careerpathmate.customviews.FormInputText
             android:id="@+id/descriptionInputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             app:label="@string/company_description_label"
             app:placeholder="@string/company_description_placeholder" />
 
-        <com.example.careerpathmate.customviews.FormInputSpinner
+        <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/jobLocationSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
