@@ -24,12 +24,12 @@ Career Path Mate is a comprehensive job application tracker that allows users to
 - **Dependency Injection**: Dagger Hilt
 - **Architecture**: MVVM (Model-View-ViewModel)
 - **Minimum SDK**: Android 8.0 (API 26)
-- **Target SDK**: Android 13 (API 33)
+- **Target SDK**: Android 16 (API 36)
 
 ## Requirements
 
 - Android Studio (Arctic Fox or newer)
-- Android SDK 33
+- Android SDK 36
 - JDK 17
 - Gradle 8.0+
 

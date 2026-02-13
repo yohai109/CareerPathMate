@@ -14,7 +14,7 @@ import org.junit.Assert.*
  * These tests run on the JVM without requiring an Android device or emulator.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [33])
+@Config(sdk = [35])
 class MainActivityTest {
 
     private lateinit var activity: MainActivity

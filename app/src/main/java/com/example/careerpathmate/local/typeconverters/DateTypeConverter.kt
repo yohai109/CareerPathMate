@@ -1,6 +1,7 @@
 package com.example.careerpathmate.local.typeconverters
 
 import androidx.room.TypeConverter
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -11,7 +12,11 @@ class DateTypeConverter {
     fun stringToCalender(date: String?): Calendar? {
         if (date == null) return null
         val cal = Calendar.getInstance()
-        cal.time = formatter.parse(date) ?: cal.time
+        try {
+            cal.time = formatter.parse(date) ?: cal.time
+        } catch (e: Exception) {
+            Timber.w(e, "Can't parse date: $date, using current time")
+        }
         return cal
     }
 
