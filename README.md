@@ -1,6 +1,6 @@
 # Career Path Mate
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  [![CI](https://github.com/yohai109/CareerPathMate/actions/workflows/ci.yml/badge.svg)](https://github.com/yohai109/CareerPathMate/actions/workflows/ci.yml)
 
 A personal Android application designed to help job seekers track and manage their job applications throughout the job search process.
 
