@@ -18,7 +18,9 @@ import com.yohai.careerpathmate.uimodels.StepStatusUi
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.Calendar
+import java.util.Locale
 
 @AndroidEntryPoint
 class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
@@ -50,8 +52,8 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
                             set(year, monthOfYear, dayOfMonth)
                         }
                         viewModel.setStepDate(cal)
-                        val dat = (dayOfMonth.toString() + "-" + (monthOfYear + 1) + "-" + year)
-                        dateTextView.text = dat
+                        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+                        dateTextView.text = dateFormat.format(cal.time)
                     },
 
                     year,

@@ -9,15 +9,15 @@ class JobItemViewHolder(
     val onClickListener: ((JobUiModel) -> Unit),
     val longClickListener: ((JobUiModel) -> Unit),
 ) : RecyclerView.ViewHolder(binding.root) {
-    lateinit var currJob: JobUiModel
+    private var currJob: JobUiModel? = null
 
     init {
         binding.root.setOnClickListener {
-            onClickListener(currJob)
+            currJob?.let { onClickListener(it) }
         }
 
         binding.root.setOnLongClickListener {
-            longClickListener(currJob)
+            currJob?.let { longClickListener(it) }
             true
         }
     }
@@ -25,10 +25,12 @@ class JobItemViewHolder(
     fun bind(job: JobUiModel) {
         currJob = job
         binding.apply {
-            companyName.text = currJob.companyName
-            status.setText(currJob.status.title)
-            statusIcon.setImageResource(currJob.status.icon)
-            indicator.setBackgroundResource(currJob.status.indicatorColor)
+            companyName.text = currJob?.companyName
+            currJob?.status?.let {
+                status.setText(it.title)
+                statusIcon.setImageResource(it.icon)
+                indicator.setBackgroundResource(it.indicatorColor)
+            }
         }
     }
 }

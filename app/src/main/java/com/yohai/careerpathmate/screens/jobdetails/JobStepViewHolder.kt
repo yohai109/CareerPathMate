@@ -11,14 +11,14 @@ class JobStepViewHolder(
     private val clickListener: (JobStepUiModel) -> Unit,
     private val longClickListener: (JobStepUiModel) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
-    private lateinit var currStep: JobStepUiModel
+    private var currStep: JobStepUiModel? = null
 
     init {
         binding.root.setOnClickListener {
-            clickListener(currStep)
+            currStep?.let { clickListener(it) }
         }
         binding.root.setOnLongClickListener {
-            longClickListener(currStep)
+            currStep?.let { longClickListener(it) }
             true
         }
     }

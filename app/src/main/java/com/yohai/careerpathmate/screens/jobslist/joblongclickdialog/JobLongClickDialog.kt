@@ -29,7 +29,7 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
             JobUiStatus.No -> markAsNoAction.isVisible = false
             null -> Toast.makeText(
                 context?.applicationContext,
-                "illegal argument",
+                com.yohai.careerpathmate.R.string.error_illegal_argument,
                 Toast.LENGTH_SHORT
             ).show()
         }

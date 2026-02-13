@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">CareerPathMate</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 
     <string name="status_ongoing">On Going</string>
     <string name="job_status_yes">Yes</string>
@@ -39,4 +37,5 @@
     <string name="edit_job_title">Edit Job</string>
     <string name="create_step_title">Crate Step</string>
     <string name="edit_step_title">Edit step</string>
+    <string name="error_illegal_argument">Invalid argument provided</string>
 </resources>

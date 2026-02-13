@@ -40,10 +40,14 @@ class JobDetailsViewModel @Inject constructor(
                     date = Calendar.getInstance(),
                     jobId = jobId,
                     status = StepStatus.Current,
-                    name = "auto created",
+                    name = DEFAULT_STEP_NAME,
                     location = StepLocation.Remote
                 )
             )
         }
+    }
+
+    companion object {
+        private const val DEFAULT_STEP_NAME = "auto created"
     }
 }
