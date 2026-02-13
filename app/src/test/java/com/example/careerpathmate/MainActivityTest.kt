@@ -1,6 +1,5 @@
 package com.example.careerpathmate
 
-import android.widget.Toolbar
 import androidx.appcompat.widget.Toolbar as AppCompatToolbar
 import org.junit.Before
 import org.junit.Test
