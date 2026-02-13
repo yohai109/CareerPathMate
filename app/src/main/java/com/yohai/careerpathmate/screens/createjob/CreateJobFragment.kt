@@ -27,7 +27,7 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
     private var jobId: String? = null
 
     override fun FragmentCreateJobBinding.initUI() {
-        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             fabWrapper.updatePadding(bottom = insets.bottom)
             WindowInsetsCompat.CONSUMED

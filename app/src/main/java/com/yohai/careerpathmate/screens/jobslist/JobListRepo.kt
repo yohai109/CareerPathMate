@@ -12,9 +12,9 @@ import javax.inject.Inject
 class JobListRepo @Inject constructor(
     private val dao: JobsDao
 ) {
-    val allJobs = dao.getAll().map {
-        it.map {
-            JobUiModel(it)
+    val allJobs = dao.getAll().map { jobsList ->
+        jobsList.map { job ->
+            JobUiModel(job)
         }
     }
 
@@ -23,8 +23,8 @@ class JobListRepo @Inject constructor(
     }
 
     suspend fun deleteJobs(vararg id: String) = withContext(Dispatchers.IO) {
-        dao.delete(*id.map {
-            JobEntity(id = it, "", "", "")
+        dao.delete(*id.map { jobId ->
+            JobEntity(id = jobId, "", "", "")
         }.toTypedArray())
     }
 }

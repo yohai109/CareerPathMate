@@ -44,10 +44,11 @@ class BottomSheetListItem @JvmOverloads constructor(
         label = loadedAttrs.getString(
             R.styleable.BottomSheetListItem_label
         )
-        icon = loadedAttrs.getResourceId(
+        val iconResId = loadedAttrs.getResourceId(
             R.styleable.BottomSheetListItem_icon,
             0,
         )
+        icon = if (iconResId != 0) iconResId else null
         loadedAttrs.recycle()
     }
 

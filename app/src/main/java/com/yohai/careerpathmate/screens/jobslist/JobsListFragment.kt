@@ -38,12 +38,12 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
 
     override fun FragmentJobsListBinding.initUI() {
         var initialPadding: Int? = null
-        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             if (initialPadding == null) {
                 initialPadding = jobsListRV.paddingBottom
             }
-            jobsListRV.updatePadding(bottom = initialPadding + insets.bottom)
+            jobsListRV.updatePadding(bottom = (initialPadding ?: 0) + insets.bottom)
             fabWrapper.updatePadding(bottom = insets.bottom)
             WindowInsetsCompat.CONSUMED
         }
