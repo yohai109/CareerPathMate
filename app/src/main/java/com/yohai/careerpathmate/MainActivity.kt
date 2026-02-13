@@ -22,12 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         
         var initialPadding: Int? = null
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { _, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             if (initialPadding == null) {
-                initialPadding = view.paddingTop
+                initialPadding = binding.root.paddingTop
             }
-            view.updatePadding(top = (initialPadding ?: 0) + insets.top)
+            binding.root.updatePadding(top = (initialPadding ?: 0) + insets.top)
             windowInsets
         }
         
