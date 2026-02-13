@@ -9,6 +9,7 @@ import androidx.core.view.MenuProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.marginBottom
 import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -37,15 +38,16 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
 
     override fun FragmentJobsListBinding.initUI() {
         var initialPadding: Int? = null
-        ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
             if (initialPadding == null) {
                 initialPadding = jobsListRV.paddingBottom
             }
-            jobsListRV.updatePadding(bottom = (initialPadding ?: 0) + insets.bottom)
-            windowInsets
+            jobsListRV.updatePadding(bottom = initialPadding + insets.bottom)
+            fabWrapper.updatePadding(bottom = insets.bottom)
+            WindowInsetsCompat.CONSUMED
         }
-        
+
         newJobFab.setOnClickListener {
             findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
         }

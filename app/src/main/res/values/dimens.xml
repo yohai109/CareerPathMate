@@ -12,4 +12,5 @@
     <dimen name="commonMargin">2dp</dimen>
     <dimen name="commonLargeMargin">8dp</dimen>
     <dimen name="indicatorWidth">4dp</dimen>
+    <dimen name="fabMargin">16dp</dimen>
 </resources>

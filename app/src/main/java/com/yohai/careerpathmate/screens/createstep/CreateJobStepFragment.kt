@@ -1,6 +1,9 @@
 package com.yohai.careerpathmate.screens.createstep
 
 import android.app.DatePickerDialog
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -25,6 +28,12 @@ class CreateJobStepFragment : BaseFragment<FragmentCreateJobStepBinding>(
     private val args: CreateJobStepFragmentArgs by navArgs()
     private val viewModel: CreateJobStepViewModel by viewModels()
     override fun FragmentCreateJobStepBinding.initUI() {
+        ViewCompat.setOnApplyWindowInsetsListener(root) { _, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            fabWrapper.updatePadding(bottom = insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
 
         dateTextView.setOnClickListener {
             val c = viewModel.newStep.date

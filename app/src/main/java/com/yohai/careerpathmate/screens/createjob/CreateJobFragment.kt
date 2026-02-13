@@ -1,5 +1,8 @@
 package com.yohai.careerpathmate.screens.createjob
 
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -24,7 +27,11 @@ class CreateJobFragment : BaseFragment<FragmentCreateJobBinding>(
     private var jobId: String? = null
 
     override fun FragmentCreateJobBinding.initUI() {
-
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            fabWrapper.updatePadding(bottom = insets.bottom)
+            WindowInsetsCompat.CONSUMED
+        }
 
         createJobFAB.setOnClickListener {
             viewModel.jobToCreate = viewModel.jobToCreate.copy(

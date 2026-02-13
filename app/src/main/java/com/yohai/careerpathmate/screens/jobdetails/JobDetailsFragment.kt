@@ -36,9 +36,10 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
                 initialPadding = stepsRV.paddingBottom
             }
             stepsRV.updatePadding(bottom = (initialPadding ?: 0) + insets.bottom)
-            windowInsets
+            fabWrapper.updatePadding(bottom = insets.bottom)
+            WindowInsetsCompat.CONSUMED
         }
-        
+
         jobDetailsFAB.setOnClickListener {
             val action = JobDetailsFragmentDirections
                 .actionJobDetailsFragmentToCreateJobStepFragment(
