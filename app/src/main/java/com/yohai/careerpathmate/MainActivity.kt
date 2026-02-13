@@ -1,8 +1,11 @@
 package com.yohai.careerpathmate
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.yohai.careerpathmate.databinding.ActivityMainBinding
@@ -14,7 +17,15 @@ class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(binding.root)
+        
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(0, insets.top, 0, 0)
+            windowInsets
+        }
+        
         setSupportActionBar(binding.toolbar)
 
         val controller = (

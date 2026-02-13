@@ -6,7 +6,10 @@ import android.view.MenuItem
 import android.widget.SearchView.OnQueryTextListener
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -33,6 +36,12 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
     private val viewModel: JobListViewModel by viewModels()
 
     override fun FragmentJobsListBinding.initUI() {
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            jobsListRV.updatePadding(bottom = insets.bottom)
+            windowInsets
+        }
+        
         newJobFab.setOnClickListener {
             findNavController().navigate(JobsListFragmentDirections.actionJobsListFragmentToCreateJobFragment())
         }

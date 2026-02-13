@@ -1,5 +1,8 @@
 package com.yohai.careerpathmate.screens.jobdetails
 
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -26,6 +29,12 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
     private val navArgs: JobDetailsFragmentArgs by navArgs()
 
     override fun FragmentJobDetailsBinding.initUI() {
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            stepsRV.updatePadding(bottom = insets.bottom)
+            windowInsets
+        }
+        
         jobDetailsFAB.setOnClickListener {
             val action = JobDetailsFragmentDirections
                 .actionJobDetailsFragmentToCreateJobStepFragment(
