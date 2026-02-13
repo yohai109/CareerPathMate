@@ -27,9 +27,9 @@ class JobDetailsViewModel @Inject constructor(
         JobUiModel(it)
     }
 
-    fun steps() = repo.steps(jobId).map {
-        it.map {
-            JobStepUiModel(it)
+    fun steps() = repo.steps(jobId).map { stepsList ->
+        stepsList.map { step ->
+            JobStepUiModel(step)
         }
     }
 

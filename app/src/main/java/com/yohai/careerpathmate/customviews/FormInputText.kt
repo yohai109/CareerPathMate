@@ -9,7 +9,8 @@ import com.yohai.careerpathmate.R
 import com.yohai.careerpathmate.databinding.FormInputTextBinding
 
 /**
- * TODO: document your custom view class.
+ * A custom view that combines a label and an EditText input field.
+ * This form input component provides a consistent UI for text input fields throughout the app.
  */
 class FormInputText @JvmOverloads constructor(
     context: Context,

@@ -7,12 +7,12 @@ import java.util.Calendar
 import java.util.Locale
 
 class DateTypeConverter {
-    private val formatter = SimpleDateFormat(TIMESTAMP_FORMAT, Locale.getDefault())
     @TypeConverter
     fun stringToCalender(date: String?): Calendar? {
         if (date == null) return null
         val cal = Calendar.getInstance()
         try {
+            val formatter = SimpleDateFormat(TIMESTAMP_FORMAT, Locale.getDefault())
             cal.time = formatter.parse(date) ?: cal.time
         } catch (e: Exception) {
             Timber.w(e, "Can't parse date: $date, using current time")
@@ -23,6 +23,7 @@ class DateTypeConverter {
     @TypeConverter
     fun calenderToString(date: Calendar?): String? {
         if (date == null) return null
+        val formatter = SimpleDateFormat(TIMESTAMP_FORMAT, Locale.getDefault())
         return formatter.format(date.time)
     }
 

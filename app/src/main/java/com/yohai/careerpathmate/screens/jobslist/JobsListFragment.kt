@@ -134,9 +134,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
         lifecycleScope.launch(Dispatchers.Main) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.jobs.collect {
-                    withContext(Dispatchers.Main) {
-                        (binding?.jobsListRV?.adapter as? JobListAdapter)?.submitList(it)
-                    }
+                    (binding?.jobsListRV?.adapter as? JobListAdapter)?.submitList(it)
                 }
             }
         }

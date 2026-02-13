@@ -78,9 +78,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
         viewLifecycleOwner.lifecycleScope.launch(Dispatchers.Main) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.currJob().collect {
-                    withContext(Dispatchers.Main) {
-                        jobInfo(it)
-                    }
+                    jobInfo(it)
                 }
             }
         }
