@@ -17,18 +17,21 @@ class SpinnerGenericAdapter<T>(
     values
 ) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var text = convertView as? CheckedTextView
-        if (text == null) {
-            text = LayoutInflater.from(context)
+        val text = if (convertView is CheckedTextView) {
+            convertView
+        } else {
+            LayoutInflater.from(context)
                 .inflate(
                     android.R.layout.simple_spinner_dropdown_item,
                     parent,
                     false
-                ) as CheckedTextView
+                ) as? CheckedTextView
         }
 
-        getItem(position)?.let { text.text = initText(it) }
-        return text
+        text?.let { textView ->
+            getItem(position)?.let { item -> textView.text = initText(item) }
+        }
+        return text ?: View(context)
     }
 
     override fun getDropDownView(
@@ -36,17 +39,20 @@ class SpinnerGenericAdapter<T>(
         convertView: View?,
         parent: ViewGroup
     ): View {
-        var textView: CheckedTextView? = convertView as? CheckedTextView
-        if (textView == null) {
-            textView = LayoutInflater.from(context)
+        val textView = if (convertView is CheckedTextView) {
+            convertView
+        } else {
+            LayoutInflater.from(context)
                 .inflate(
                     android.R.layout.simple_spinner_dropdown_item,
                     parent,
                     false
-                ) as CheckedTextView
+                ) as? CheckedTextView
         }
 
-        getItem(position)?.let { textView.text = initText(it) }
-        return textView
+        textView?.let { view ->
+            getItem(position)?.let { item -> view.text = initText(item) }
+        }
+        return textView ?: View(context)
     }
 }

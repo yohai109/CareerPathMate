@@ -22,9 +22,9 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideJobsDao(db: MainDatabase) = db.jobsDao()
+    fun provideJobsDao(db: MainDatabase): com.yohai.careerpathmate.local.dao.JobsDao = db.jobsDao()
 
     @Provides
     @Singleton
-    fun provideStepsDao(db: MainDatabase) = db.stepsDao()
+    fun provideStepsDao(db: MainDatabase): com.yohai.careerpathmate.local.dao.StepsDao = db.stepsDao()
 }

@@ -146,12 +146,15 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
         }
 
         override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-            when (menuItem.itemId) {
-                R.id.searchItem -> binding?.apply {
-                    searchContainer.isVisible = !searchContainer.isVisible
+            return when (menuItem.itemId) {
+                R.id.searchItem -> {
+                    binding?.apply {
+                        searchContainer.isVisible = !searchContainer.isVisible
+                    }
+                    true
                 }
+                else -> false
             }
-            return true
         }
     }
 }
