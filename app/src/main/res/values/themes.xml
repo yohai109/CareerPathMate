@@ -27,10 +27,10 @@
         <item name="colorSecondaryContainer">@color/light_secondary_variant</item>
         <item name="colorOnSecondaryContainer">@color/light_on_secondary</item>
         
-        <!-- Status bar and navigation bar -->
-        <item name="android:statusBarColor">@color/light_primary</item>
-        <item name="android:navigationBarColor">@color/light_surface</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <!-- Status bar and navigation bar - transparent for edge-to-edge -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
     </style>
 
