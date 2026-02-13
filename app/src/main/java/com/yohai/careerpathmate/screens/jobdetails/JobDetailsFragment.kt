@@ -35,7 +35,7 @@ class JobDetailsFragment : BaseFragment<FragmentJobDetailsBinding>(
             if (initialPadding == null) {
                 initialPadding = stepsRV.paddingBottom
             }
-            stepsRV.updatePadding(bottom = initialPadding!! + insets.bottom)
+            stepsRV.updatePadding(bottom = (initialPadding ?: 0) + insets.bottom)
             windowInsets
         }
         

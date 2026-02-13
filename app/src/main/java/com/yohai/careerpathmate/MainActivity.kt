@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             if (initialPadding == null) {
                 initialPadding = view.paddingTop
             }
-            view.updatePadding(top = initialPadding!! + insets.top)
+            view.updatePadding(top = (initialPadding ?: 0) + insets.top)
             windowInsets
         }
         

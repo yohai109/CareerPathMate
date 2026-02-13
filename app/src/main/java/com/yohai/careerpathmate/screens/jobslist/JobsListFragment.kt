@@ -42,7 +42,7 @@ class JobsListFragment : BaseFragment<FragmentJobsListBinding>(FragmentJobsListB
             if (initialPadding == null) {
                 initialPadding = jobsListRV.paddingBottom
             }
-            jobsListRV.updatePadding(bottom = initialPadding!! + insets.bottom)
+            jobsListRV.updatePadding(bottom = (initialPadding ?: 0) + insets.bottom)
             windowInsets
         }
         
