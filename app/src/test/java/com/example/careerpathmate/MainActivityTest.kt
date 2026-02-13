@@ -51,7 +51,7 @@ class MainActivityTest {
     }
 
     @Test
-    fun setToolbarTitle_updatesTitle() {
+    fun setToolbarTitle_withString_updatesTitle() {
         // Test that setting the toolbar title works correctly
         val newTitle = "Test Title"
         activity.setToolbarTitle(newTitle)
