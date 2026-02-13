@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace 'com.example.careerpathmate'
-    compileSdk 33
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.example.careerpathmate"
         minSdk 26
-        targetSdk 33
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
