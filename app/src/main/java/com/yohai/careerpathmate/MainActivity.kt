@@ -6,6 +6,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.yohai.careerpathmate.databinding.ActivityMainBinding
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
             val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(0, insets.top, 0, 0)
+            view.updatePadding(top = insets.top)
             windowInsets
         }
         
