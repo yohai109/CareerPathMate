@@ -59,6 +59,35 @@ Career Path Mate is a comprehensive job application tracker that allows users to
    - Connect an Android device or start an emulator
    - Click the "Run" button or press `Shift+F10` (Windows/Linux) / `Ctrl+R` (Mac)
 
+## Testing
+
+The project includes comprehensive unit tests for data models, type converters, and business logic.
+
+### Running Tests Locally
+
+```bash
+./gradlew test
+```
+
+### CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration. On every push and pull request:
+- ✅ Automated tests are executed
+- 📊 **Test results are visualized** with a beautiful UI in the GitHub Actions checks tab
+- 📝 Test summaries are posted as comments on pull requests
+- 📦 Detailed test reports are uploaded as artifacts
+
+Test results include:
+- Pass/fail status for each test
+- Test execution time
+- Detailed failure messages and stack traces
+- Overall test statistics and trends
+
+You can view test results directly in:
+1. The **Checks** tab of any pull request
+2. The **Actions** tab for workflow runs
+3. Downloaded test report artifacts for detailed HTML reports
+
 ## Project Structure
 
 ```
