@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.yohai.careerpathmate.R
 import com.yohai.careerpathmate.baseclasses.BaseBottomSheetDialogFragment
 import com.yohai.careerpathmate.databinding.DialogJobListLongClickBinding
 import com.yohai.careerpathmate.local.model.JobStatus
@@ -29,7 +30,7 @@ class JobLongClickDialog : BaseBottomSheetDialogFragment<DialogJobListLongClickB
             JobUiStatus.No -> markAsNoAction.isVisible = false
             null -> Toast.makeText(
                 context?.applicationContext,
-                "illegal argument",
+                context?.getString(R.string.error_illegal_argument),
                 Toast.LENGTH_SHORT
             ).show()
         }
