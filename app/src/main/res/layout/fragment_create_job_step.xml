@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.careerpathmate.customviews.FormInputText
+        <com.yohai.careerpathmate.customviews.FormInputText
             android:id="@+id/stepDescriptionInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,14 +35,14 @@
             android:padding="@dimen/exitTextPadding"
             android:text="please choose date" />
 
-        <com.example.careerpathmate.customviews.FormInputSpinner
+        <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepStatusSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/formItemsSpacing"
             app:label="status" />
 
-        <com.example.careerpathmate.customviews.FormInputSpinner
+        <com.yohai.careerpathmate.customviews.FormInputSpinner
             android:id="@+id/stepLocationSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,13 +51,20 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/createStepFab"
+    <FrameLayout
+        android:id="@+id/fabWrapper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_checkmark"
+        android:layout_marginEnd="@dimen/fabMargin"
+        android:layout_marginBottom="@dimen/fabMargin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:useCompatPadding="true" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/createStepFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_checkmark"/>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
